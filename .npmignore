@@ -1,0 +1,7 @@
+coverage
+css
+js
+*.html
+*.config.js
+setupJest.js
+.gitattributes

@@ -1,0 +1,1308 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Documentation | Javascript Helpers</title>
+    <meta name="description" content="Javascript Helpers">
+    <meta name="keywords" content="helpers, utils, javascript">
+    <meta name="author" content="Valerio Di Punzio">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Raleway:200" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+
+    <div id="top" class="container mb-5">
+
+        <div id="menu" class="position-sticky text-right">
+            <div class="dropdown d-inline-block mt-3">
+                <button class="btn dropdown-toggle dropdown-red-outline py-0 px-2" data-toggle="dropdown" type="button">
+                    menu
+                </button>
+                <span class="dropdown-menu">
+                    <a class="dropdown-item" href="#browsers-support">Browsers Support</a>
+                    <a class="dropdown-item" href="#usage">Usage</a>
+                    <a class="dropdown-item" href="#helpers">Helpers</a>
+                    <a class="dropdown-item" href="#changelog">Changelog</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers" target="_blank">View on Github</a>
+                    <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers/issues" target="_blank">Report a Bug</a>
+                </span>
+            </div>
+        </div>
+        
+        <div id="hero" class="text-center mb-5">
+            <div>
+                <p class="d-inline-block my-4">
+                    <a href="https://github.com/SimplySayHi/javascript-helpers" target="_blank" class="media">
+                        <span class="media-body interline-normal">view on <br />Github</span>
+                        <svg class="align-self-center ml-2" style="vertical-align: middle;" version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M16,0.112c-8.836,0-16,7.294-16,16.291 C0,23.6,4.584,29.706,10.942,31.86c0.801,0.148 1.093-0.354,1.093-0.785c0-0.387-0.015-1.412-0.021-2.771 c-4.451,0.984-5.39-2.184-5.39-2.184c-0.729-1.881-1.777-2.383-1.777-2.383c-1.452-1.01,0.11-0.99,0.11-0.99 .605,0.115,2.45,1.68,2.45,1.68c1.428,2.488,3.745,1.77,4.657,1.354c0.145-1.053,0.559-1.771,1.016-2.178 c-3.553-0.412-7.288-1.809-7.288-8.051c0-1.778,0.623-3.232,1.646-4.371c-0.164-0.412-0.713-2.068,0.157-4.311 c0,0,1.344-0.438,4.399,1.67c1.276-0.361,2.646-0.543,4.006-0.549c1.359,0.006,2.728,0.188,4.006,0.549 c3.056-2.108,4.396-1.67,4.396-1.67c0.873,2.242,0.323,3.898,0.159,4.311c1.024,1.139,1.644,2.593,1.644,4.371 c0,6.258-3.74,7.635-7.305,8.038c0.574,0.504,1.086,1.498,1.086,3.018c0,2.178-0.02,3.934-0.02,4.469 c0,0.436,0.288,0.941,1.101,0.783C27.421,29.7,32,23.598,32,16.403C32,7.406,24.837,0.112,16,0.112z" />
+                        </svg>
+                    </a>
+                </p>
+            </div>
+            <h1>Javascript Helpers</h1>
+            <div class="mt-5">
+                <p class="d-inline-block mb-1">
+                Version 
+                </p>
+                <div class="dropdown d-inline-block ml-1">
+                    <button class="btn dropdown-toggle dropdown-red-outline py-0 px-2 bg-transparent" data-toggle="dropdown" type="button" data-print-current-version></button>
+                    <span class="dropdown-menu w-100 py-1">
+                        <a class="dropdown-item px-2" target="_blank" href="https://valeriodipunzio.com/plugins/javascript-helpers/1.0.0/">1.0.0</a>
+                    </span>
+                </div>
+                <br />
+                Documentation
+            </div>
+        </div>
+
+        <!-- Download -->
+        <div id="download" class="text-center">
+            <p>
+                <a href="https://www.npmjs.com/package/javascript-helpers" target="_blank">Go to NPM &rarr;</a>
+            </p>
+        </div>
+
+        <!-- Intro -->
+        <div id="intro">
+            <h2>Intro</h2>
+            <p>
+                Javascript Helpers is a list of useful functions to make development easier.
+            </p>
+        </div>
+
+        <!-- Browsers Support -->
+        <div id="browsers-support">
+            <h3 class="sticky-title">Browsers Support</h3>
+            <p>
+                Desktop &amp; Mobile versions of:
+            </p>
+            <ul>
+                <li>
+                    Chrome
+                </li>
+                <li>
+                    Firefox
+                </li>
+                <li>
+                    Internet Explorer 10+ / Edge <span class="text-yellow">*</span>
+                </li>
+                <li>
+                    Safari 9+
+                </li>
+            </ul>
+            <hr />
+            <p>
+                <span class="text-yellow">*</span> for compatibility with IE 10/11 and old versions of Edge you have to load some JS polyfills - depending on the imported functions ( from <a href="https://polyfill.io" target="_blank">polyfill.io</a> or else ):<br />
+                <code>Array.from</code> <code>Element.prototype.closest</code> <code>Element.prototype.matches</code> <code>Promise</code> <code>Promise.prototype.finally</code> <code>AbortController</code> <code>fetch</code>
+            </p>
+            <pre>
+&lt;script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch"&gt;&lt;/script&gt;</pre>
+        </div>
+
+        <!-- Usage -->
+        <div id="usage">
+            <h3 class="sticky-title">Usage</h3>
+            <p>
+                Install via NPM:
+            </p>
+            <pre>
+npm install javascript-helpers
+</pre>
+            <p>
+                and use as ES6 module loading the modules you need.<br />
+                For example:
+            </p>
+            <pre>
+import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
+</pre>
+        </div>
+
+        <!-- Helpers -->
+        <div id="helpers">
+            <h3 class="sticky-title">Helpers</h3>
+            <div class="panel panel-default panel-transparent no-bg">
+                <div class="card-header bg-white text-dark clearfix d-none d-lg-block">
+                    <div class="d-flex flex-wrap">
+                        <div class="col-xl-4 d-none d-xl-block">
+                            name
+                        </div>
+                        <div class="col-lg-8 col-xl-5">
+                            <span class="d-inline d-xl-none">name, </span>
+                            description &amp; parameters
+                        </div>
+                        <div class="col-lg-4 col-xl-3">
+                            return value
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="">
+
+                        <!-- addClass -->
+                        <section id="addClass" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">addClass( elements, cssClasses )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Add the specified css class(es) to the specified HTML element(s).
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">cssClasses</span>: ( String ) One or more space-separated css classes to be added.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- ajaxCall -->
+                        <section id="ajaxCall" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">ajaxCall( options )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Fire an AJAX call using fetch ( see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters" target="_blank">MDN documentation</a> for options details ).
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">options</span>: ( Object ) as per fetch options but you can also add these:
+                                        </p>
+                                        <pre>
+{
+    url: 'path-to/my-remote-service',
+    timeout: 10000
+}
+</pre>
+                                        <p class="m-0">
+                                            Default options object is:
+                                        </p>
+                                        <pre>
+{
+    cache:          'no-store',
+    credentials:    'same-origin',
+    headers: {
+                    'Content-Type': 'application/json'
+    },
+    method:         'GET',
+    mode:           'same-origin',
+    redirect:       'follow',
+    timeout:        0,
+    url:            location.href
+}
+</pre>
+                                        <p>
+                                            Note that "headers" is passed as plain object.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header ).
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- checkDirtyField -->
+                        <section id="checkDirtyField" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">checkDirtyField( fields, cssClasses )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if each passed field has a value set and add/remove the specified css class(es) to its container element ( with attribute <code>data-formjs-question</code> ) or the field itself.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">cssClasses</span>: ( String ) One or more space-separated css classes to be added/removed.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- checkFormElement -->
+                        <section id="checkFormElement" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">checkFormElement( formEl )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the argument passed is a valid form selector or HTML Element.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">formEl</span>: ( HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <pre>
+{
+    result: true,
+    element: HTML_Element
+}
+</pre>
+                            </div>
+                        </section>
+
+                        <!-- fillForm -->
+                        <section id="fillForm" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">fillForm( formEl, data[, skipFilledFields = false] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Fille the fields in the specified form element using the passed data object.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">formEl</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">data</span>: ( Object ) Each key must match the name attribute of the filed.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">skipFilledFields</span>: ( Boolean ) Whether or not to skip fields with the value already set.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p class="m-0">
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getAge -->
+                        <section id="getAge" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getAge( dateString )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get the age from the passed date.<br />
+                                    <code>-1</code> is returned if the argument is not a valid date.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">dateString</span>: ( String ) A valid date in format ISO 8601.<br />
+                                            YYYY-MM-DD | YYYY/MM/DD | YYYY MM DD
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Number
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getAgeBetween -->
+                        <section id="getAgeBetween" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getAgeBetween( dateString1, dateString2 )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get the age between the passed dates. <code>dateString1</code> must be greater then <code>dateString2</code>.<br />
+                                    <code>-1</code> is returned if one of the arguments is not a valid date.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">dateString1</span>: ( String ) A valid date in format ISO 8601.<br />
+                                            YYYY-MM-DD | YYYY/MM/DD | YYYY MM DD
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">dateString2</span>: ( String ) A valid date in format ISO 8601.<br />
+                                            YYYY-MM-DD | YYYY/MM/DD | YYYY MM DD
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Number
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getDateSeparator -->
+                        <section id="getDateSeparator" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getDateSeparator( dateString[, checkIso8601separator = true] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get the character that is being used as date separator.<br />
+                                    <code>null</code> is returned if <code>dateString</code> is not a valid date.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">dateString</span>: ( String ) A valid date in format ISO 8601.<br />
+                                            YYYY-MM-DD | YYYY/MM/DD | YYYY MM DD
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">checkIso8601separator</span>: ( Boolean ) Whether or not to check for the ISO 8601 date separators / - " "(space).
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String |  null
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getElements -->
+                        <section id="getElements" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getElements( elements )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get an array of elements from the passed NodeList, HTML Element or String Selector.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Array
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getFilledFields -->
+                        <section id="getFilledFields" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getFilledFields( formEl )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get an array with all the form fields with a set value.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">formEl</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Array
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getUniqueFields -->
+                        <section id="getUniqueFields" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getUniqueFields( formEl )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get an array with all the unique form fields. Unique fields are retrieved by type and name attributes.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">formEl</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Array
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- getUrlParameter -->
+                        <section id="getUrlParameter" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">getUrlParameter( [parameterName] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get the value of the specified paramter name.<br />
+                                    If the paramter has no value, <code>true</code> is returned.<br />
+                                    If <code>parameterName</code> is falsy, it will return all the parameters as array of objects ( key/value ).
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">parameterName</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String | Boolean | Array
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isDomNode -->
+                        <section id="isDomNode" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isDomNode( node )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>node</code> is a DOM Node or not.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">node</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isEmptyObject -->
+                        <section id="isEmptyObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isEmptyObject( obj )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>obj</code> is an empty object or not.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">obj</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isFieldForChangeEvent -->
+                        <section id="isFieldForChangeEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isFieldForChangeEvent( fieldEl )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>fieldEl</code> is eligible for a "change" event listener.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">fieldEl</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isNodeList -->
+                        <section id="isNodeList" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isNodeList( nodeList )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>nodeList</code> is a NodeList or not.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">nodeList</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isPlainObject -->
+                        <section id="isPlainObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isPlainObject( obj )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>obj</code> is an plain object or not.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">obj</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isValidDate -->
+                        <section id="isValidDate" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isValidDate( dateString )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>dateString</code> is valid date for ISO 8601 format.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">dateString</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- isValidSelector -->
+                        <section id="isValidSelector" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isValidSelector( stringSelector )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>stringSelector</code> is valid CSS selector.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">stringSelector</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- mergeObjects -->
+                        <section id="mergeObjects" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">mergeObjects( out )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Deep merge of objects, from left to right.<br />
+                                    To return a completely new object, pass <code>{}</code> as first argument.<br />
+                                    Arrays are not deeply merged but completely replaced.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">out</span>: ( Object )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Object
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- removeAllWhiteSpaces -->
+                        <section id="removeAllWhiteSpaces" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">removeAllWhiteSpaces( string )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Remove all the white-spaces from the passed string.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- removeClass -->
+                        <section id="removeClass" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">removeClass( elements, cssClasses )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Remove the specified css class(es) to the specified HTML element(s).
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">cssClasses</span>: ( String ) One or more space-separated css classes to be added.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- removeMulitpleWhiteSpaces -->
+                        <section id="removeMulitpleWhiteSpaces" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">removeMulitpleWhiteSpaces( string )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Remove consecutive multiple white-spaces from the passed string.<br />
+                                    If two or more consecutive white-spaces are found, only one will remain.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- removeUrlHash -->
+                        <section id="removeUrlHash" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">removeUrlHash()</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Remove the hash from the url.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- runCallback -->
+                        <section id="runCallback" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">runCallback( fn, data, options )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Run the passed function ( or array of functions ) passing to it/them <code>data</code> and <code>options</code>.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">fn</span>: ( Function | Array of Functions )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">data</span>: ( Object ) Data passed to each function.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">options</span>: ( Object ) Options passed to each function.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- runFunctionsSequence -->
+                        <section id="runFunctionsSequence" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">runFunctionsSequence( functionsList, data, stopConditionFn )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Run the passed array of functions/promises as sequence and passing to them <code>data</code>.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">functionsList</span>: ( Array of Functions/Promises )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">data</span>: ( Object ) Data passed to each function/promise.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">stopConditionFn</span>: ( Function ) Function used as condition at each funciton/promise running to check if the sequence must stop or not.<br />
+                                            It must have a return statement: if <code>true</code> the execution will stop.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Promise with all the data objects as returned by each function/promise ( if return statement is set ).
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- serializeObject -->
+                        <section id="serializeObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">serializeObject( obj )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Convert a Javascript object to a url-encoded string.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">obj</span>: ( Object )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- setUrlHash -->
+                        <section id="setUrlHash" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">setUrlHash( hashValue )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Set the passed <code>hashValue</code> as url hash.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">hashValue</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- toCamelCase -->
+                        <section id="toCamelCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">toCamelCase( string )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Convert the passed <code>string</code> to a camel-case string (eg: "helloMyFriend").
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- toKebabCase -->
+                        <section id="toKebabCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">toKebabCase( string, useAllCaps = false )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Convert the passed <code>string</code> to a kebab-case string (eg: "hello-my-friend").
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">useAllCaps</span>: ( Boolean ) Whether or not to transform the string in all-caps.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- toSnakeCase -->
+                        <section id="toSnakeCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">toSnakeCase( string, useAllCaps = false )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Convert the passed <code>string</code> to a snake-case string (eg: "hello_my_friend").
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">useAllCaps</span>: ( Boolean ) Whether or not to transform the string in all-caps.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- webStorage -->
+                        <section id="webStorage" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">webStorage</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    This is useful to check if web storage is available in the browser ( local storage and session storage ).<br />
+                                    If web storage is available, this will add 2 new methods for web storage:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <pre class="text-green">Storage.prototype.getObject( name )</pre>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    <span class="text-green">name</span>: ( String ) The name for the web storage to retrieve.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            This method will return a Javascript object with the saved web storage infos.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <pre class="text-green">Storage.prototype.setObject( name, object )</pre>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    <span class="text-green">name</span>: ( String ) The name for the web storage.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <span class="text-green">object</span>: ( Object ) A Javascript object to store in web storage as JSON string.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <pre>
+{
+    isAvailable: true
+}
+</pre>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Changelog -->
+        <div id="changelog">
+            <h3 class="sticky-title">Changelog</h3>
+            <ul class="p-0">
+                <li class="media my-3">
+                    <div class="version-num text-red" data-print-current-version></div>
+                    <div class="media-body pl-2">
+                        <ul>
+                            <li>
+                                First release
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bugs -->
+        <div id="bugs">
+            <h3 class="sticky-title">Bugs</h3>
+            <p>
+                If you find a bug, please report it <a href="https://github.com/SimplySayHi/javascript-helpers/issues" target="_blank">here</a>
+            </p>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch"></script>
+    <script src="js/include.js"></script>
+    <!-- <script type="module">
+        import { ajaxCall } from './src/index.js';
+
+        ajaxCall( {url: './src/modules/ajaxCall/data.json'} )
+            .then(data => {
+                console.log('ajaxCall to data.json then data', data);
+            })
+            .catch(error => {
+                console.log('ajaxCall to data.json catch error', error);
+            });
+
+        ajaxCall( {url: './src/modules/ajaxCall/aaaa.json'} )
+            .then(data => {
+                console.log('ajaxCall to aaaa.json then data', data);
+            })
+            .catch(error => {
+                console.log('ajaxCall to aaaa.json catch error', error);
+            });
+
+        ajaxCall()
+            .then(data => {
+                console.log('ajaxCall with no arguments then');
+            })
+            .catch(error => {
+                console.log('ajaxCall with no arguments catch error', error);
+            });
+    </script> -->
+
+</body>
+</html>

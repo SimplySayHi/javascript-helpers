@@ -1,0 +1,36 @@
+{
+    "name": "javascript-helpers",
+    "title": "Javascript Helpers",
+    "description": "List of useful Javascript functions to make development easier",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "homepage": "https://valeriodipunzio.com/plugins/javascript-helpers/",
+    "author": {
+        "email": "sayhi@valeriodipunzio.com",
+        "name": "Valerio Di Punzio",
+        "url": "https://valeriodipunzio.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SimplySayHi/javascript-helpers.git"
+    },
+    "keywords": [
+        "helpers",
+        "utils",
+        "functions"
+    ],
+    "bugs": {
+        "url": "https://github.com/SimplySayHi/javascript-helpers/issues"
+    },
+    "license": "MIT",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "babel-jest": "^24.9.0",
+        "jest": "^24.9.0",
+        "jest-fetch-mock": "^2.1.2"
+    }
+}

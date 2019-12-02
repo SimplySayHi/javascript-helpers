@@ -1,0 +1,7 @@
+coverage
+node_modules
+.DS_Store
+**/.DS_Store
+Thumbs.db
+**/Thumbs.db
+.idea

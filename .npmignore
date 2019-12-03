@@ -1,7 +1,9 @@
 coverage
 css
 js
+*.json
 *.html
 *.config.js
+*.test.js
 setupJest.js
 .gitattributes

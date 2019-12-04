@@ -123,6 +123,9 @@ npm install javascript-helpers
             <pre>
 import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 </pre>
+            <p>
+                Note: Remember to use tree-shaking techniques to avoid importing all modules from Javascript Helpers.
+            </p>
         </div>
 
         <!-- Helpers -->
@@ -231,7 +234,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <p>
-                                    Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header ).
+                                    Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header - by default, body is consumed as json ).
                                 </p>
                             </div>
                         </section>
@@ -1274,7 +1277,6 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
 
 
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch"></script>
     <script src="js/include.js"></script>
     <!-- <script type="module">
         import { ajaxCall } from './src/index.js';

@@ -1,5 +1,5 @@
 
-# Javascript Helpers
+# JavaScript Helpers
 
 Visit the [Plugin Documentation Page](https://www.valeriodipunzio.com/plugins/javascript-helpers/) for more info.
 

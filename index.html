@@ -676,6 +676,28 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                         </section>
 
+                        <!-- isMobile -->
+                        <section id="isMobile" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isMobile</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check the user agent string to return if used device is mobile or not.<br />
+                                    For detailed infos ( OS/Browser name, version etc... ) use <a href="https://www.npmjs.com/package/device-detector-js" target="_blank">device-detector-js</a>
+                                </p>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
                         <!-- isNodeList -->
                         <section id="isNodeList" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -1257,12 +1279,35 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                First release
+                                Added "isMobile"
                             </li>
                         </ul>
                     </div>
                 </li>
             </ul>
+            <div class="toggable-content-outer">
+                <input type="checkbox" class="fake-checkbox btn-toggable-content" id="changelog-show-more" />
+                <label class="toggable-label text-red" for="changelog-show-more">
+                    <span>Show more</span>
+                    <span>Close</span>
+                </label>
+                <div class="toggable-content">
+                    <ul class="p-0">
+
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.0.1</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        First release
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Bugs -->
@@ -1279,7 +1324,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
     <script src="js/include.js"></script>
     <!-- <script type="module">
-        import { ajaxCall } from './src/index.js';
+        import { ajaxCall, isMobile } from './src/index.js';
+
+        console.log('isMobile?', isMobile);
 
         ajaxCall( {url: './src/modules/ajaxCall/data.json'} )
             .then(data => {

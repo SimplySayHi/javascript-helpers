@@ -14,6 +14,7 @@ import getUrlParameterFn            from './modules/getUrlParameter/getUrlParame
 import isDomNodeFn                  from './modules/isDomNode/isDomNode.js';
 import isEmptyObjectFn              from './modules/isEmptyObject/isEmptyObject.js';
 import isFieldForChangeEventFn      from './modules/isFieldForChangeEvent/isFieldForChangeEvent.js';
+import isMobileFn                   from './modules/isMobile/isMobile.js';
 import isNodeListFn                 from './modules/isNodeList/isNodeList.js';
 import isPlainObjectFn              from './modules/isPlainObject/isPlainObject.js';
 import isValidDateFn                from './modules/isValidDate/isValidDate.js';
@@ -48,6 +49,7 @@ export const
     isDomNode =                     isDomNodeFn,
     isEmptyObject =                 isEmptyObjectFn,
     isFieldForChangeEvent =         isFieldForChangeEventFn,
+    isMobile =                      isMobileFn,
     isNodeList =                    isNodeListFn,
     isPlainObject =                 isPlainObjectFn,
     isValidDate =                   isValidDateFn,

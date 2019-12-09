@@ -3,21 +3,15 @@ import isPlainObject from '../isPlainObject/isPlainObject.js';
 
 const mergeObjects = function( out = {} ) {
 
-    for(let i=1; i<arguments.length; i++){
-        let obj = arguments[i];
-
-        if(!obj){ continue; }
-
-        for(let key in obj){
-            if( obj.hasOwnProperty(key) ){
-                if ( isPlainObject(obj[key]) ){
-                    out[key] = mergeObjects(out[key], obj[key]);
-                } else {
-                    out[key] = obj[key];
-                }
+    Array.from(arguments).filter(arg => !!arg).forEach(arg => {
+        Object.keys(arg).forEach(key => {
+            if ( isPlainObject(arg[key]) ){
+                out[key] = mergeObjects(out[key], arg[key]);
+            } else {
+                out[key] = arg[key];
             }
-        }
-    }
+        });
+    });
 
     return out;
     

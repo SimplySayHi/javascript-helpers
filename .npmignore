@@ -1,7 +1,7 @@
 coverage
 css
 js
-*.json
+src/**/*.json
 *.html
 *.config.js
 *.test.js

@@ -4,7 +4,7 @@ import checkFormElement from './checkFormElement';
 describe( 'Check Form Element', () => {
 
     beforeEach(() => {
-        document.body.innerHTML = `<form name="my-form"></form>`;
+        document.body.innerHTML = `<form name="my-form"></form><form name="my-form-2"></form>`;
     } );
 
     test( 'Form is an Existing HTML Element', () => {
@@ -13,6 +13,16 @@ describe( 'Check Form Element', () => {
         const expectedResult = {
             result: true,
             element: el
+        };
+        expect( expectTest ).toEqual( expectedResult );
+    } );
+
+    test( 'Form is an Existing NodeList', () => {
+        let el = document.querySelectorAll( 'form' );
+        const expectTest = checkFormElement( el );
+        const expectedResult = {
+            result: true,
+            element: el[0]
         };
         expect( expectTest ).toEqual( expectedResult );
     } );

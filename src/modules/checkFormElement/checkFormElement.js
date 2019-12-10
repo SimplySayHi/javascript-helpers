@@ -1,14 +1,14 @@
 
-import isDomNode from '../isDomNode/isDomNode.js';
-import isValidSelector from '../isValidSelector/isValidSelector.js';
+import getElements from '../getElements/getElements.js';
 
-export default ( formEl = null ) => {
+export default ( formEl ) => {
 
-    const isFormSelector = isValidSelector(formEl) && document.querySelector(formEl).tagName.toLowerCase() === 'form';
+    formEl = getElements(formEl)[0] || null;
+    const isForm = !!formEl && formEl.tagName && formEl.tagName.toLowerCase() === 'form';
 
     return {
-        result: isFormSelector || isDomNode(formEl),
-        element: isFormSelector ? document.querySelector(formEl) : formEl
+        result: isForm,
+        element: formEl
     }
     
 }

@@ -280,7 +280,8 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Check if the argument passed is a valid form selector or HTML Element.
+                                    Check if the argument passed is a valid form.<br />
+                                    In case the passed value is a NodeList, only the first one is evaluated.
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -288,7 +289,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">formEl</span>: ( HTML Element | Selector )
+                                            <span class="text-green">formEl</span>: ( NodeList | HTML Element | Selector )
                                         </p>
                                     </li>
                                 </ul>
@@ -1282,7 +1283,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 Added "isMobile"
                             </li>
                             <li>
-                                Improved "mergeObjects"
+                                Improved "mergeObjects" and "checkFormElement"
                             </li>
                         </ul>
                     </div>

@@ -330,9 +330,24 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                         </p>
                                     </li>
                                     <li>
-                                        <p>
-                                            <span class="text-green">data</span>: ( Object ) Each key must match the name attribute of the filed.
+                                        <p class="m-0">
+                                            <span class="text-green">data</span>: ( Object ) Each key must match the name attribute of the filed.<br />
+                                            Values can be set depending on the field as follow:
                                         </p>
+                                        <ul class="mb-3">
+                                            <li>
+                                                checkbox ( single ): Boolean
+                                            </li>
+                                            <li>
+                                                checkbox / select ( multiple ): Array of Strings
+                                            </li>
+                                            <li>
+                                                radio: String
+                                            </li>
+                                            <li>
+                                                all others: String  
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <p>

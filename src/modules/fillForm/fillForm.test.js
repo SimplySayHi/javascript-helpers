@@ -65,7 +65,8 @@ describe( 'Fill Form', () => {
             'radio-list-1': '3',
             'radio-list-1-more': 'hello',
             contactPrefCheck: ['app-notification','non-existing-answer'],
-            privacyCheck: 'accepted'
+            privacyCheck: 'accepted',
+            'share-my-infos': false
         };
         const expectedResult = fillForm( el, data );
         const expectTest = () => {
@@ -75,8 +76,9 @@ describe( 'Fill Form', () => {
             const _3b = document.querySelector('[name="radio-list-1-more"]').value === data['radio-list-1-more'];
             const _4 = document.querySelector('[name="contactPrefCheck"][value="app-notification"]').checked;
             const _5 = document.querySelector('[name="privacyCheck"][value="accepted"]').checked;
+            const _6 = document.querySelector('[name="share-my-infos"]').checked === false;
 
-            return _1 && _2 && _3a && _3b && _4 && _5;
+            return _1 && _2 && _3a && _3b && _4 && _5 && _6;
         };
         expect( expectTest() ).toBe( true );
         expect( expectedResult ).toEqual( el );

@@ -18,11 +18,12 @@ export default ( formEl, data = {}, skipFilledFields = false ) => {
             
             // CHECKBOXES ( SINGLE & MUTIPLE ) & RADIOS
             keyValue.forEach(listValue => {
-                const fieldEl = typeof listValue === 'boolean' ?
+                const isBoolean = typeof listValue === 'boolean';
+                const fieldEl = isBoolean ?
                                 formEl.querySelector('[name="'+ name +'"]') : 
                                 formEl.querySelector('[name="'+ name +'"][value="'+ listValue +'"]');
                 if( fieldEl ){
-                    fieldEl.checked = true;
+                    fieldEl.checked = isBoolean ? listValue : true;
                 }
             });
 

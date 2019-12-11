@@ -3,11 +3,13 @@ import addClass     from '../addClass/addClass.js';
 import getElements  from '../getElements/getElements.js';
 import removeClass  from '../removeClass/removeClass.js';
 
-export default ( fields = [], cssClasses = '' ) => {
+export default ( fields, cssClasses = '' ) => {
 
-    if( !cssClasses ){ return; }
+    fields = getElements(fields);
+
+    if( !cssClasses ){ return fields; }
     
-    getElements(fields).forEach(fieldEl => {
+    fields.forEach(fieldEl => {
         if( fieldEl.type !== 'checkbox' && fieldEl.type !== 'radio' ){
             let containerEl = fieldEl.closest('[data-formjs-question]') || fieldEl;
 
@@ -22,5 +24,7 @@ export default ( fields = [], cssClasses = '' ) => {
             }
         }
     });
+
+    return fields;
     
 }

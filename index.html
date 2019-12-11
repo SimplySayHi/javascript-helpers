@@ -180,7 +180,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <p>
-                                    Array of elements as returned by getElements.
+                                    Array of elements as returned by getElements from the passed <code>elements</code>.
                                 </p>
                             </div>
                         </section>
@@ -258,7 +258,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                            <span class="text-green">fields</span>: ( NodeList | HTML Element | Selector )
                                         </p>
                                     </li>
                                     <li>
@@ -269,8 +269,11 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </ul>
                             </div>
                             <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
                                 <p>
-
+                                    Array of elements as returned by getElements from the passed <code>fields</code>.
                                 </p>
                             </div>
                         </section>
@@ -936,7 +939,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <p>
-                                    Array of elements as returned by getElements.
+                                    Array of elements as returned by getElements from the passed <code>elements</code>.
                                 </p>
                             </div>
                         </section>
@@ -1310,7 +1313,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 Improved "mergeObjects" and "checkFormElement"
                             </li>
                             <li>
-                                "addClass", "removeClass" and "fillForm" now return the passed element(s)
+                                "addClass", "checkDirtyField", "fillForm" and "removeClass" now return the passed element(s)
                             </li>
                         </ul>
                     </div>

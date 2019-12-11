@@ -47,4 +47,6 @@ export default ( formEl = null, data = {}, skipFilledFields = false ) => {
         }
     });
 
+    return formEl;
+
 }

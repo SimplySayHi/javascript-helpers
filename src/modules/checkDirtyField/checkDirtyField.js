@@ -7,7 +7,7 @@ export default ( fields = [], cssClasses = '' ) => {
 
     if( !cssClasses ){ return; }
     
-    getElements(fields).forEach(function(fieldEl){
+    getElements(fields).forEach(fieldEl => {
         if( fieldEl.type !== 'checkbox' && fieldEl.type !== 'radio' ){
             let containerEl = fieldEl.closest('[data-formjs-question]') || fieldEl;
 

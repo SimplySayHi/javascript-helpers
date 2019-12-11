@@ -2,49 +2,38 @@
 import isEmptyObject from '../isEmptyObject/isEmptyObject.js';
 import getElements from '../getElements/getElements.js';
 
-const fieldsStringSelector = 'input:not([type="reset"]):not([type="submit"]):not([type="button"]):not([type="hidden"]), select, textarea';
+export default ( formEl, data = {}, skipFilledFields = false ) => {
 
-export default ( formEl = null, data = {}, skipFilledFields = false ) => {
+    formEl = getElements(formEl)[0] || null;
 
-    formEl = getElements(formEl)[0];
+    if( !formEl || !data || isEmptyObject(data) ){ return formEl; }
 
-    if( !formEl || !data || isEmptyObject(data) ){ return; }
+    Object.keys( data ).forEach(name => {
+        const firstFieldEl = formEl.querySelector('[name="'+ name +'"]');
+        const isRadio = firstFieldEl && firstFieldEl.type === 'radio';
+        const isSingleCheckbox = typeof data[name] === 'boolean';
+        const keyValue = isSingleCheckbox || isRadio ? [data[name]] : data[name];
 
-    Array.from( formEl.querySelectorAll(fieldsStringSelector) ).forEach(fieldEl => {
-        const name = fieldEl.name;
-
-        if( typeof data[name] !== 'undefined' ){
-
-            let value = data[name];
-            const type = fieldEl.type,
-                  isCheckbox = type === 'checkbox',
-                  isRadio = type === 'radio';
-
-            if( isCheckbox || isRadio ){
-
-                if( isRadio ){
-
-                    fieldEl = formEl.querySelector('[name="'+ name +'"][value="'+ value +'"]');
-
-                } else if( fieldEl.matches('[data-checks]') ) {
-
-                    if( value.indexOf(fieldEl.value) === -1 ){
-                        fieldEl = null;
-                    }
-
-                }
-
+        if( Array.isArray(keyValue) ){
+            
+            // CHECKBOXES ( SINGLE & MUTIPLE ) & RADIOS
+            keyValue.forEach(listValue => {
+                const fieldEl = typeof listValue === 'boolean' ?
+                                formEl.querySelector('[name="'+ name +'"]') : 
+                                formEl.querySelector('[name="'+ name +'"][value="'+ listValue +'"]');
                 if( fieldEl ){
-                    fieldEl.checked = value;
+                    fieldEl.checked = true;
                 }
+            });
 
-            } else if( !skipFilledFields || fieldEl.value === '' ) {
+        } else {
 
-                fieldEl.value = value;
-
+            const fieldEl = formEl.querySelector('[name="'+ name +'"]');
+            if( fieldEl && (!skipFilledFields || fieldEl.value === '') ){
+                fieldEl.value = keyValue;
             }
-
         }
+
     });
 
     return formEl;

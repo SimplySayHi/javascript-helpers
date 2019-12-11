@@ -38,20 +38,23 @@ describe( 'Fill Form', () => {
             name: 'Valerio',
             email: 'address@email.com',
             'radio-list-1': '2',
-            contactPrefCheck: ['app-notification'],
-            privacyCheck: 'accepted'
+            contactPrefCheck: ['app-notification','non-existing-answer'],
+            privacyCheck: 'accepted',
+            'share-my-infos': true
         };
-        fillForm( el, data );
+        const expectedResult = fillForm( el, data );
         const expectTest = () => {
             const _1 = document.querySelector('[name="name"]').value === data.name;
             const _2 = document.querySelector('[name="email"]').value === data.email;
             const _3 = document.querySelector('[name="radio-list-1"][value="2"]').checked;
             const _4 = document.querySelector('[name="contactPrefCheck"][value="app-notification"]').checked;
             const _5 = document.querySelector('[name="privacyCheck"][value="accepted"]').checked;
+            const _6 = document.querySelector('[name="share-my-infos"]').checked;
 
-            return _1 && _2 && _3 && _4 && _5;
+            return _1 && _2 && _3 && _4 && _5 && _6;
         };
         expect( expectTest() ).toBe( true );
+        expect( expectedResult ).toEqual( el );
     } );
 
     test( 'Test 2 with Data Object', () => {
@@ -61,10 +64,10 @@ describe( 'Fill Form', () => {
             email: 'address@email.com',
             'radio-list-1': '3',
             'radio-list-1-more': 'hello',
-            contactPrefCheck: ['app-notification'],
+            contactPrefCheck: ['app-notification','non-existing-answer'],
             privacyCheck: 'accepted'
         };
-        fillForm( el, data );
+        const expectedResult = fillForm( el, data );
         const expectTest = () => {
             const _1 = document.querySelector('[name="name"]').value === data.name;
             const _2 = document.querySelector('[name="email"]').value === data.email;
@@ -76,6 +79,7 @@ describe( 'Fill Form', () => {
             return _1 && _2 && _3a && _3b && _4 && _5;
         };
         expect( expectTest() ).toBe( true );
+        expect( expectedResult ).toEqual( el );
     } );
 
     test( 'Test 3 with Data Object', () => {
@@ -86,10 +90,10 @@ describe( 'Fill Form', () => {
             email: 'address@email.com',
             'radio-list-1': '3',
             'radio-list-1-more': 'hello',
-            contactPrefCheck: ['app-notification'],
+            contactPrefCheck: ['app-notification','non-existing-answer'],
             privacyCheck: 'accepted'
         };
-        fillForm( el, data, true );
+        const expectedResult = fillForm( el, data, true );
         const expectTest = () => {
             const _1 = document.querySelector('[name="name"]').value === data.name;
             const _2 = document.querySelector('[name="email"]').value === 'valerio@email.com';
@@ -101,6 +105,7 @@ describe( 'Fill Form', () => {
             return _1 && _2 && _3a && _3b && _4 && _5;
         };
         expect( expectTest() ).toBe( true );
+        expect( expectedResult ).toEqual( el );
     } );
 
     test( 'Test 4 with Data Object and formEl as selector', () => {
@@ -111,10 +116,10 @@ describe( 'Fill Form', () => {
             email: 'address@email.com',
             'radio-list-1': '3',
             'radio-list-1-more': 'hello',
-            contactPrefCheck: ['app-notification'],
+            contactPrefCheck: ['app-notification','non-existing-answer'],
             privacyCheck: 'accepted'
         };
-        fillForm( el, data, true );
+        const expectedResult = fillForm( el, data, true );
         const expectTest = () => {
             const _1 = document.querySelector('[name="name"]').value === data.name;
             const _2 = document.querySelector('[name="email"]').value === 'valerio@email.com';
@@ -126,6 +131,7 @@ describe( 'Fill Form', () => {
             return _1 && _2 && _3a && _3b && _4 && _5;
         };
         expect( expectTest() ).toBe( true );
+        expect( expectedResult ).toEqual( document.querySelector(el) );
     } );
 
     test( 'Test 4 with Data Object and formEl as NodeList', () => {
@@ -136,10 +142,10 @@ describe( 'Fill Form', () => {
             email: 'address@email.com',
             'radio-list-1': '3',
             'radio-list-1-more': 'hello',
-            contactPrefCheck: ['app-notification'],
+            contactPrefCheck: ['app-notification','non-existing-answer'],
             privacyCheck: 'accepted'
         };
-        fillForm( el, data, true );
+        const expectedResult = fillForm( el, data, true );
         const expectTest = () => {
             const _1 = document.querySelector('[name="name"]').value === data.name;
             const _2 = document.querySelector('[name="email"]').value === 'valerio@email.com';
@@ -151,11 +157,30 @@ describe( 'Fill Form', () => {
             return _1 && _2 && _3a && _3b && _4 && _5;
         };
         expect( expectTest() ).toBe( true );
+        expect( expectedResult ).toEqual( el[0] );
+    } );
+
+    test( 'Test 5 with Form Element but undefined data', () => {
+        let el = document.querySelector( 'form' );
+        const data = undefined;
+        const expectedResult = fillForm( el, data );
+        const expectTest = () => {
+            const _1 = document.querySelector('[name="name"]').value === data && data.name;
+            const _2 = document.querySelector('[name="email"]').value === data && data.email;
+            const _3 = document.querySelector('[name="radio-list-1"][value="2"]').checked;
+            const _4 = document.querySelector('[name="contactPrefCheck"][value="app-notification"]').checked;
+            const _5 = document.querySelector('[name="privacyCheck"][value="accepted"]').checked;
+
+            return _1 && _2 && _3 && _4 && _5;
+        };
+        expect( expectTest() ).toBe( false );
+        expect( expectedResult ).toEqual( el );
     } );
 
     test( 'Test with no arguments', () => {
-        fillForm();
+        const expectedResult = fillForm();
         expect( true ).toBe( true );
+        expect( expectedResult ).toEqual( null );
     } );
 
 } );

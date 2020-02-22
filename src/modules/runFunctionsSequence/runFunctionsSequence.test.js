@@ -6,6 +6,7 @@ describe('Run Functions Sequence', () => {
     const obj = {
             result: true    
         },
+        fnList_0 = [],
         fnList_1 = [
             function fnTest_1 ( data ){
                 return data;
@@ -58,6 +59,14 @@ describe('Run Functions Sequence', () => {
             function fnTest_1 ( data ){}
         ];
 
+    test('Fn List empty', () => {
+        const expectTest = runFunctionsSequence({functionsList: fnList_0, data: obj});
+        const expectedResult = [
+            {result: true}
+        ];
+        return expect( expectTest ).resolves.toStrictEqual( expectedResult );
+    });
+
     test('Fn List with multiple fn without Stop Condition', () => {
         const expectTest = runFunctionsSequence({functionsList: fnList_1, data: obj});
         const expectedResult = [
@@ -95,7 +104,7 @@ describe('Run Functions Sequence', () => {
 
     test('with no Arguments', () => {
         const expectTest = runFunctionsSequence();
-        const expectedResult = [];
+        const expectedResult = [{}];
         return expect( expectTest ).resolves.toStrictEqual( expectedResult );
     });
 

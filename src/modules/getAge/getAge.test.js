@@ -5,6 +5,7 @@ describe( 'Get Age', () => {
 
     const currentDate = new Date().toISOString().split('T')[0];
     const thisMonth = currentDate.split('-')[1];
+    const day = (thisMonth == '02' ? '28' : '30');
     const thisYear = currentDate.split('-')[0];
     const age = thisYear - 2000;
     const ageNotValid = -1;
@@ -29,8 +30,8 @@ describe( 'Get Age', () => {
         expect( expectTest ).toBe( expectedResult );
     } );
 
-    test( 'Date passed as 2000-'+ thisMonth +'-30 (actual current month)', () => {
-        const expectTest = getAge( '2000-'+ thisMonth +'-30' );
+    test( 'Date passed as 2000-'+ thisMonth +'-'+ day +' (actual current month)', () => {
+        const expectTest = getAge( '2000-'+ thisMonth +'-'+ day );
         const expectedResult = age - 1;
         expect( expectTest ).toBe( expectedResult );
     } );

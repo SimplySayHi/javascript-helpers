@@ -16,5 +16,5 @@ export default ( { functionsList = [], data = {}, stopConditionFn = function(){r
                 });
         });
     }, Promise.resolve([data]))
-        .then(dataList => dataList.length > 1 ? dataList.slice(1) : []);
+        .then(dataList => dataList.length > 1 ? dataList.slice(1) : dataList);
 }

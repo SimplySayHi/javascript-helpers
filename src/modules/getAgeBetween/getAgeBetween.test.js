@@ -4,6 +4,7 @@ import getAgeBetween from './getAgeBetween';
 describe( 'Get Age Between', () => {
 
     const thisMonth = new Date().toISOString().split('T')[0].split('-')[1];
+    const day = (thisMonth == '02' ? '28' : '30');
     const age = 30;
     const ageNotValid = -1;
 
@@ -27,8 +28,8 @@ describe( 'Get Age Between', () => {
         expect( expectTest ).toBe( expectedResult );
     } );
 
-    test( 'Date passed as 2018-01-01 and 1988-'+ thisMonth +'-30 (actual current month)', () => {
-        const expectTest = getAgeBetween( '2018-01-01', '1988-'+ thisMonth +'-30' );
+    test( 'Date passed as 2018-01-01 and 1988-'+ thisMonth +'-'+ day +' (actual current month)', () => {
+        const expectTest = getAgeBetween( '2018-01-01', '1988-'+ thisMonth +'-'+ day );
         const expectedResult = age - 1;
         expect( expectTest ).toBe( expectedResult );
     } );

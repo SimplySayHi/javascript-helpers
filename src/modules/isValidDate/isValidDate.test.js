@@ -41,6 +41,18 @@ describe( 'Is Valid Date', () => {
         expect( expectTest ).toBe( expectedResult );
     } );
 
+    test( 'Date passed as a2000/01/01', () => {
+        const expectTest = isValidDate( 'a2000/01/01' );
+        const expectedResult = false;
+        expect( expectTest ).toBe( expectedResult );
+    } );
+
+    test( 'Date passed as 2000/01/01a', () => {
+        const expectTest = isValidDate( '2000/01/01a' );
+        const expectedResult = false;
+        expect( expectTest ).toBe( expectedResult );
+    } );
+
     test( 'Date not passed', () => {
         const expectTest = isValidDate();
         const expectedResult = false;

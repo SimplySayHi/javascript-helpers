@@ -194,7 +194,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Fire an AJAX call using fetch ( see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters" target="_blank">MDN documentation</a> for options details ).
+                                    Fire an AJAX call using fetch API ( see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters" target="_blank">MDN documentation</a> for options details ).
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -238,7 +238,59 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <p>
-                                    Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header - by default, body is consumed as json ).
+                                    Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header ).
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- ajaxCallXhr -->
+                        <section id="ajaxCallXhr" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">ajaxCallXhr( options )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Fire a Promise-based AJAX call using XMLHttpRequest API.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">options</span>: ( Object )
+                                        </p>
+                                        <p class="m-0">
+                                            Default options object is:
+                                        </p>
+                                        <pre>
+{
+    async:      true,
+    cache:      false,
+    headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-Requested-With': 'XMLHttpRequest'
+    },
+    method:     'GET',
+    password:   null,
+    timeout:    0,
+    url:        location.href,
+    username:   null
+}
+</pre>
+                                        <p>
+                                            Note that "headers" is passed as plain object.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Promise
                                 </p>
                             </div>
                         </section>
@@ -814,6 +866,44 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                         </section>
 
+                        <!-- isValidEmail -->
+                        <section id="isValidEmail" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">isValidEmail( emailString, checkRfc5322 = true )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Check if the passed <code>emailString</code> is valid email.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">emailString</span>: ( String )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">checkRfc5322</span>: ( Boolean ) Whether or not to check the passed email address against a RegExp 99.9% compliant with RFC5322 ( <a href="https://flaviocopes.com/how-to-validate-email-address-javascript/" target="_blank">read this</a> ).
+                                            <br />
+                                            If set to <code>false</code>, it will check the email address against a simpler email RegExp.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Boolean
+                                </p>
+                            </div>
+                        </section>
+
                         <!-- isValidSelector -->
                         <section id="isValidSelector" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -1201,6 +1291,37 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                         </section>
 
+                        <!-- toPascalCase -->
+                        <section id="toPascalCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">toPascalCase( string )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Convert the passed <code>string</code> to a pascal-case string (eg: "HelloMyFriend").
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                            </div>
+                        </section>
+
                         <!-- toSnakeCase -->
                         <section id="toSnakeCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -1305,10 +1426,13 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Fixed bug in "isValidDate"
+                                Added "ajaxCallXhr", "isValidEmail", "toPascalCase"
                             </li>
                             <li>
-                                Updated dev dependencies
+                                Improved "ajaxCall", now method text() is used also to consume response if header Content-Type is empty or 'application/javascript'
+                            </li>
+                            <li>
+                                Fixed bug in "toCamelCase", "toKebabCase", "toSnakeCase" by trimming string at beginning
                             </li>
                         </ul>
                     </div>
@@ -1323,6 +1447,19 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.1.2</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Fixed bug in "isValidDate"
+                                    </li>
+                                    <li>
+                                        Updated dev dependencies
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.1.1</div>
                             <div class="media-body pl-2">

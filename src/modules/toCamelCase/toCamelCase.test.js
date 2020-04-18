@@ -28,6 +28,11 @@ describe( 'To Camel Case', () => {
         expect( expectTest ).toBe( 'hello' );
     } );
 
+    test( 'Passed "   hello"', () => {
+        const expectTest = toCamelCase( '   hello world' );
+        expect( expectTest ).toBe( 'helloWorld' );
+    } );
+
     test( 'Passed empty string', () => {
         const expectTest = toCamelCase( '' );
         expect( expectTest ).toBe( '' );

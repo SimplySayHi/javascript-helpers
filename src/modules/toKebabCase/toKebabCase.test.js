@@ -33,6 +33,11 @@ describe( 'To Kebab Case', () => {
         expect( expectTest ).toBe( 'hello' );
     } );
 
+    test( 'Passed "   hello"', () => {
+        const expectTest = toKebabCase( '   hello' );
+        expect( expectTest ).toBe( 'hello' );
+    } );
+
     test( 'Passed empty string', () => {
         const expectTest = toKebabCase( '' );
         expect( expectTest ).toBe( '' );

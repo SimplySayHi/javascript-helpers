@@ -33,6 +33,11 @@ describe( 'To Snake Case', () => {
         expect( expectTest ).toBe( 'hello' );
     } );
 
+    test( 'Passed "   hello"', () => {
+        const expectTest = toSnakeCase( '   hello' );
+        expect( expectTest ).toBe( 'hello' );
+    } );
+
     test( 'Passed empty string', () => {
         const expectTest = toSnakeCase( '' );
         expect( expectTest ).toBe( '' );

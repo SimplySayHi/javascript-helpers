@@ -2,7 +2,7 @@
     "name": "javascript-helpers",
     "title": "JavaScript Helpers",
     "description": "List of useful JavaScript functions to make development easier",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "main": "src/index.js",
     "homepage": "https://valeriodipunzio.com/plugins/javascript-helpers/",
     "author": {
@@ -30,7 +30,6 @@
         "@babel/core": "^7.9.0",
         "@babel/preset-env": "^7.9.0",
         "babel-jest": "^24.9.0",
-        "jest": "^24.9.0",
-        "jest-fetch-mock": "^2.1.2"
+        "jest": "^24.9.0"
     }
 }

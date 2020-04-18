@@ -34,4 +34,4 @@ export { default as toCamelCase }                from './modules/toCamelCase/toC
 export { default as toKebabCase }                from './modules/toKebabCase/toKebabCase.js';
 export { default as toPascalCase }               from './modules/toPascalCase/toPascalCase.js';
 export { default as toSnakeCase }                from './modules/toSnakeCase/toSnakeCase.js';
-export { default as webStorage }                 from './modules/webStorage/webStorage.ignore-test.js';
+export { default as webStorage }                 from './modules/webStorage/webStorage.js';

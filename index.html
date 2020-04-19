@@ -889,7 +889,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                         <p>
                                             <span class="text-green">checkRfc5322</span>: ( Boolean ) Whether or not to check the passed email address against a RegExp 99.9% compliant with RFC5322 ( <a href="https://flaviocopes.com/how-to-validate-email-address-javascript/" target="_blank">read this</a> ).
                                             <br />
-                                            If set to <code>false</code>, it will check the email address against a simpler email RegExp.
+                                            If set to <code>false</code>, it will check the email address against a simpler email RegExp ( <a href="https://regex101.com/r/cdlyJy/3" target="_blank">read this</a> ).
                                         </p>
                                     </li>
                                 </ul>
@@ -1426,13 +1426,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Added "ajaxCallXhr", "isValidEmail", "toPascalCase"
-                            </li>
-                            <li>
-                                Improved "ajaxCall", now method text() is used also to consume response if header Content-Type is empty or 'application/javascript'
-                            </li>
-                            <li>
-                                Fixed bug in "toCamelCase", "toKebabCase", "toSnakeCase" by trimming string at beginning
+                                Improved alternative RegExp for "isValidEmail"
                             </li>
                         </ul>
                     </div>
@@ -1447,6 +1441,22 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.2.0</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Added "ajaxCallXhr", "isValidEmail", "toPascalCase"
+                                    </li>
+                                    <li>
+                                        Improved "ajaxCall", now method text() is used also to consume response if header Content-Type is empty or 'application/javascript'
+                                    </li>
+                                    <li>
+                                        Fixed bug in "toCamelCase", "toKebabCase", "toSnakeCase" by trimming string at beginning
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.1.2</div>
                             <div class="media-body pl-2">

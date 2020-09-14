@@ -103,10 +103,10 @@
             <hr />
             <p>
                 <span class="text-yellow">*</span> for compatibility with IE 10/11 and old versions of Edge you have to load some JS polyfills - depending on the imported functions ( from <a href="https://polyfill.io" target="_blank">polyfill.io</a> or else ):<br />
-                <code>Array.from</code> <code>Element.prototype.closest</code> <code>Element.prototype.matches</code> <code>Promise</code> <code>Promise.prototype.finally</code> <code>AbortController</code> <code>fetch</code>
+                <code>Array.from</code> <code>Element.prototype.closest</code> <code>Element.prototype.matches</code> <code>Promise</code> <code>Promise.prototype.finally</code> <code>AbortController</code> <code>fetch</code> <code>Event</code> <code>CustomEvent</code>
             </p>
             <pre>
-&lt;script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch"&gt;&lt;/script&gt;</pre>
+&lt;script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch,Event,CustomEvent"&gt;&lt;/script&gt;</pre>
         </div>
 
         <!-- Usage -->
@@ -477,10 +477,10 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                         </section>
 
-                        <!-- dispatchEvent -->
-                        <section id="dispatchEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                        <!-- emitEvent -->
+                        <section id="emitEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">dispatchEvent( elem, eventName, eventOptions  )</pre>
+                                <pre class="text-green">emitEvent( elem, eventName, eventOptions  )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -510,8 +510,52 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                             <div class="col-lg-4 col-xl-3">
                                 <p>
-                                    Polyfills you may need: None
+                                    Polyfills you may need:
                                 </p>
+                                <li>
+                                    <code>Event</code>
+                                </li>
+                            </div>
+                        </section>
+
+                        <!-- emitCustomEvent -->
+                        <section id="emitCustomEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">emitCustomEvent( elem, eventName, eventOptions  )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Dispatch a custom event on the specified object and with specified event options, where you can add object <code>detail</code>.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elem</span>: ( HTML Element )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">eventName</span>: ( String )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">eventOptions</span>: ( Object ) See <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank">customEventInit</a> on MDN documentation
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+                                    Polyfills you may need:
+                                </p>
+                                <li>
+                                    <code>CustomEvent</code>
+                                </li>
                             </div>
                         </section>
 
@@ -1708,7 +1752,10 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Added "dispatchEvent"
+                                Added "emitEvent"
+                            </li>
+                            <li>
+                                Added "emitCustomEvent"
                             </li>
                             <li>
                                 Added "deepFreeze"

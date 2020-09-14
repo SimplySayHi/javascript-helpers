@@ -1878,7 +1878,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
     <script src="js/include.js"></script>
     <script type="module">
-        import { ajaxCall } from './src/index.js';
+        import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';
 
         // USE OF OPTION timeout => WILL NOT RESPOND TO abort EVENT LISTENERS
         /* let myCall1 = ajaxCall({

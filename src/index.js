@@ -4,6 +4,8 @@ export { default as ajaxCall }                   from './modules/ajaxCall/ajaxCa
 export { default as ajaxCallXhr }                from './modules/ajaxCallXhr/ajaxCallXhr.js';
 export { default as checkDirtyField }            from './modules/checkDirtyField/checkDirtyField.js';
 export { default as checkFormElement }           from './modules/checkFormElement/checkFormElement.js';
+export { default as deepFreeze }                 from './modules/deepFreeze/deepFreeze.js';
+export { default as dispatchEvent }              from './modules/dispatchEvent/dispatchEvent.js';
 export { default as fillForm }                   from './modules/fillForm/fillForm.js';
 export { default as getAge }                     from './modules/getAge/getAge.js'
 export { default as getAgeBetween }              from './modules/getAgeBetween/getAgeBetween.js'

@@ -55,6 +55,7 @@
                 <div class="dropdown d-inline-block ml-1">
                     <button class="btn dropdown-toggle dropdown-red-outline py-0 px-2 bg-transparent" data-toggle="dropdown" type="button" data-print-current-version></button>
                     <span class="dropdown-menu w-100 py-1">
+                        <a class="dropdown-item px-2" target="_blank" href="https://valeriodipunzio.com/plugins/javascript-helpers/1.2.1/">1.2.1</a>
                         <a class="dropdown-item px-2" target="_blank" href="https://valeriodipunzio.com/plugins/javascript-helpers/1.1.2/">1.1.2</a>
                         <a class="dropdown-item px-2" target="_blank" href="https://valeriodipunzio.com/plugins/javascript-helpers/1.0.1/">1.0.1</a>
                     </span>
@@ -143,7 +144,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             description &amp; parameters
                         </div>
                         <div class="col-lg-4 col-xl-3">
-                            return value
+                            return value and polyfills
                         </div>
                     </div>
                 </div>
@@ -183,13 +184,21 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array of elements as returned by getElements from the passed <code>elements</code>.
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
                         <!-- ajaxCall -->
                         <section id="ajaxCall" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">ajaxCall( options )</pre>
+                                <pre class="text-green">ajaxCall( options = {}, canAbortOrController = false )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -231,15 +240,53 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                             Note that "headers" is passed as plain object.
                                         </p>
                                     </li>
+                                    <li>
+                                        <span class="text-green">canAbortOrController</span>: ( AbortController or Boolean ) can be a new instance of AbortController or true/false
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-lg-4 col-xl-3">
                                 <p class="d-lg-none m-0">
                                     Return value:
                                 </p>
-                                <p>
+                                <p class="m-0">
                                     Promise returned by fetch ( with body consumed depending on "Accept" request header or MIME type response header ).
+                                    <br /><br />
+                                    If <code>canAbortOrController</code> is changed from default value, ajaxCall will return this instead:
                                 </p>
+<pre>{
+    abort: Function,
+    ready: fetchPromise
+}
+</pre>
+                                <ul>
+                                    <li>
+                                        <span class="text-green">abort</span>: a function to abort the ajax call
+                                    </li>
+                                    <li>
+                                        <span class="text-green">ready</span>: the Promise returned by fetch
+                                    </li>
+                                </ul>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>AbortController</code>
+                                    </li>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>fetch</code>
+                                    </li>
+                                    <li>
+                                        <code>Promise</code>
+                                    </li>
+                                    <li>
+                                        <code>Promise.prototype.finally</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -292,6 +339,17 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Promise
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>Promise</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -328,6 +386,17 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array of elements as returned by getElements from the passed <code>fields</code>.
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>Element.prototype.closest</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -363,6 +432,86 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     element: HTML_Element
 }
 </pre>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- deepFreeze -->
+                        <section id="deepFreeze" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">deepFreeze( obj )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Apply <code>Object.freeze</code> recursively to freeze all nested objects too.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">obj</span>: ( Any )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Same object given but freezed
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- dispatchEvent -->
+                        <section id="dispatchEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre class="text-green">dispatchEvent( elem, eventName, eventOptions  )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Dispatch an event on the specified object and with specified event options.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elem</span>: ( HTML Element )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">eventName</span>: ( String )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">eventOptions</span>: ( Object ) See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/Event" target="_blank">eventInit</a> on MDN documentation
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -419,6 +568,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p class="m-0">
                                     HTML Element of the passed <code>formEl</code>
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -451,6 +608,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     Number
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -491,6 +651,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Number
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -529,6 +692,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     String |  null
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -560,6 +726,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -591,6 +765,17 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>Element.prototype.matches</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -622,6 +807,17 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>Element.prototype.matches</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -655,6 +851,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     String | Boolean | Array
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -685,6 +884,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     Boolean
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -717,6 +919,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Boolean
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -748,6 +953,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Boolean
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Element.prototype.matches</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -769,6 +982,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     Boolean
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -801,6 +1017,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Boolean
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -832,6 +1051,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Boolean
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -862,6 +1084,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     Boolean
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -901,6 +1126,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Boolean
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -931,6 +1159,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     Boolean
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -965,6 +1196,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Object
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -995,6 +1234,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     String
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1032,6 +1274,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Array of elements as returned by getElements from the passed <code>elements</code>.
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -1064,6 +1314,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     String
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -1080,7 +1333,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                             <div class="col-lg-4 col-xl-3">
                                 <p>
-
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1118,7 +1371,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                             <div class="col-lg-4 col-xl-3">
                                 <p>
-
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1162,6 +1415,17 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     Promise with all the data objects as returned by each function/promise ( if return statement is set ).
                                 </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                    <li>
+                                        <code>Promise</code>
+                                    </li>
+                                </ul>
                             </div>
                         </section>
 
@@ -1193,6 +1457,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     String
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -1219,7 +1486,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                             </div>
                             <div class="col-lg-4 col-xl-3">
                                 <p>
-
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1251,6 +1518,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     String
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1288,6 +1558,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 <p>
                                     String
                                 </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -1318,6 +1591,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     String
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1354,6 +1630,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                 </p>
                                 <p>
                                     String
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
                                 </p>
                             </div>
                         </section>
@@ -1409,6 +1688,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     isAvailable: true
 }
 </pre>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -1426,7 +1708,19 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Improved alternative RegExp for "isValidEmail"
+                                Added "dispatchEvent"
+                            </li>
+                            <li>
+                                Added "deepFreeze"
+                            </li>
+                            <li>
+                                Changed "ajaxCall" to make it manually abortable
+                            </li>
+                            <li>
+                                Updated doc with polyfills you may need for each function
+                            </li>
+                            <li>
+                                Minor improvements
                             </li>
                         </ul>
                     </div>
@@ -1441,6 +1735,16 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.2.1</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Improved alternative RegExp for "isValidEmail"
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.2.0</div>
                             <div class="media-body pl-2">
@@ -1526,6 +1830,40 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     </div>
 
     <script src="js/include.js"></script>
+    <script type="module">
+        import { ajaxCall } from './src/index.js';
+
+        // USE OF OPTION timeout => WILL NOT RESPOND TO abort EVENT LISTENERS
+        /* let myCall1 = ajaxCall({
+            method: 'POST',
+            timeout: 1
+        });
+        myCall1
+        .then(data => { console.log('ajaxCall1 then:') })
+        .catch(error => { console.log('ajaxCall1 catch:') }); */
+
+        // USE OF 2ND ARGUMENT AS new AbortController() => IT'S POSSIBLE TO CALL myCall2.abort() AND controllerCall2.abort() THAT WILL TRIGGER EVENT abort ON THE ABORT CONTROLLER
+        /* const controllerCall2 = new AbortController();
+        let myCall2 = ajaxCall({
+            method: 'POST'
+        }, controllerCall2);
+        controllerCall2.signal.addEventListener('abort', event => {
+            console.log('abort event', event);
+        });
+        myCall2.abort();
+        myCall2.ready
+        .then(data => { console.log('ajaxCall2 then:') })
+        .catch(error => { console.log('ajaxCall2 catch:') }); */
+
+        // USE OF 2ND ARGUMENT AS true => CALL CAN BE MANUALLY ABORTED VIA myCall3.abort() BUT WILL NOT RESPOND TO abort EVENT LISTENERS
+        /* let myCall3 = ajaxCall({
+            method: 'POST'
+        }, true);
+        myCall3.abort();
+        myCall3.ready
+        .then(data => { console.log('ajaxCall3 then:') })
+        .catch(error => { console.log('ajaxCall3 catch:') }); */
+    </script>
 
 </body>
 </html>

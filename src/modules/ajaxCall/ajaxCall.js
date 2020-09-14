@@ -6,39 +6,49 @@ import { defaultOptions }   from './utils/defaultOptions.js';
 import { getFetchMethod }   from './utils/getFetchMethod.js';
 import { transformBody }    from './utils/transformBody.js';
 
-export default ( options ) => {
+const runFetch = (options, timeoutTimer) => {    
+    return fetch( options.url, options )
+    .then(response => {
+        if( !response.ok ){
+            return Promise.reject(response);
+        }
+        const fetchMethod = getFetchMethod( response, options );
+        return response[fetchMethod]();
+    })
+    .finally(() => {
+        if( timeoutTimer ){
+            window.clearTimeout( timeoutTimer );
+        }
+    });
+};
+
+export default ( options = {}, canAbortOrController = false ) => {
+    const canAbort = !!canAbortOrController;
+    const hasController = canAbortOrController.signal;
+    const controller = hasController ? canAbortOrController : (options.timeout > 0 || canAbort ? new AbortController() : undefined);
     let timeoutTimer;
 
     options = mergeObjects({}, defaultOptions, options);
     options = transformBody( options );
     options.headers = new Headers( options.headers );
 
-    if ( options.timeout > 0 ) {
-        const controller = new AbortController();
-
+    if( controller ){
         options.signal = controller.signal;
 
-        timeoutTimer = window.setTimeout(() => {
-            controller.abort();
-        }, options.timeout);
+        if( options.timeout > 0 ){
+            timeoutTimer = window.setTimeout(() => {
+                controller.abort();
+            }, options.timeout);
+        }
     }
 
-    return fetch( options.url, options )
-        .then(response => {
-
-            if( !response.ok ){
-                return Promise.reject(response);
-            }
-
-            const fetchMethod = getFetchMethod( response, options );
-            return response[fetchMethod]();
-
-        })
-        .finally(() => {
-
-            if( timeoutTimer ){
-                window.clearTimeout( timeoutTimer );
-            }
-
-        });
+    return (
+        canAbort ?
+        {
+            abort: () => controller.abort(),
+            ready: runFetch( options, timeoutTimer )
+        }
+        :
+        runFetch( options, timeoutTimer )
+    )
 }

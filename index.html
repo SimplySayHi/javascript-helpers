@@ -1899,6 +1899,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
         var $filterField = $form.querySelector('[name="filterHelpers"]');
 
         function filterHelpers ( value ) {
+            value = value.toLowerCase();
             var $rows = Array.from(document.getElementById('helpers').querySelectorAll('.row-list-separator'));
 
             if( value.trim().length > 0 ){
@@ -1910,7 +1911,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
                 // FILTER
                 $rows.forEach(function($row){
-                    var fnName = $row.querySelector('[data-fn-name]').textContent.split('(')[0];
+                    var fnName = $row.querySelector('[data-fn-name]').textContent.split('(')[0].toLowerCase();
                     if( fnName.indexOf(value) >= 0 ){
                         $row.classList.remove('d-none');
                         $row.classList.add('d-flex');
@@ -1933,6 +1934,10 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
         $filterField.addEventListener('input', function(event){
             filterHelpers( $filterField.value );
         });
+
+        if( $filterField.value.trim().length > 0 ){
+            filterHelpers( $filterField.value );
+        }
     </script>
     <script type="module">
         import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';

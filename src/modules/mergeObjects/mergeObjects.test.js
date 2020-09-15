@@ -3,6 +3,12 @@ import mergeObjects from './mergeObjects';
 
 describe( 'Merge Objects', () => {
 
+    test( 'Merge Objects Test 0 (no args)', () => {
+        const expectTest = mergeObjects();
+        const extectedResult = {};
+        expect( expectTest ).toEqual( extectedResult );
+    } );
+
     test( 'Shallow Merge Objects Test 1', () => {
         const obj_1 = {a: 1},
               obj_2 = {b: [1,2,3]},

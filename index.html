@@ -18,24 +18,26 @@
 
     <div id="top" class="container mb-5">
 
-        <div id="menu" class="position-sticky text-right">
-            <div class="dropdown d-inline-block mt-3">
-                <button class="btn dropdown-toggle dropdown-red-outline py-0 px-2" data-toggle="dropdown" type="button">
-                    menu
-                </button>
-                <span class="dropdown-menu">
-                    <a class="dropdown-item" href="#browsers-support">Browsers Support</a>
-                    <a class="dropdown-item" href="#usage">Usage</a>
-                    <a class="dropdown-item" href="#helpers">Helpers</a>
-                    <a class="dropdown-item" href="#changelog">Changelog</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers" target="_blank">View on Github</a>
-                    <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers/issues" target="_blank">Report a Bug</a>
-                </span>
+        <div id="menu" class="position-sticky text-right d-flex">
+            <div class="position-relative w-100">
+                <div class="position-absolute dropdown d-inline-block mt-2 mt-sm-3">
+                    <button class="btn dropdown-toggle dropdown-red-outline py-0 px-2" data-toggle="dropdown" type="button">
+                        menu
+                    </button>
+                    <span class="dropdown-menu">
+                        <a class="dropdown-item" href="#browsers-support">Browsers Support</a>
+                        <a class="dropdown-item" href="#usage">Usage</a>
+                        <a class="dropdown-item" href="#helpers">Helpers</a>
+                        <a class="dropdown-item" href="#changelog">Changelog</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers" target="_blank">View on Github</a>
+                        <a class="dropdown-item" href="https://github.com/SimplySayHi/javascript-helpers/issues" target="_blank">Report a Bug</a>
+                    </span>
+                </div>
             </div>
         </div>
         
-        <div id="hero" class="text-center mb-5">
+        <div id="hero" class="text-center my-5">
             <div>
                 <p class="d-inline-block my-4">
                     <a href="https://github.com/SimplySayHi/javascript-helpers" target="_blank" class="media">
@@ -132,9 +134,14 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
         <!-- Helpers -->
         <div id="helpers">
-            <h3 class="sticky-title">Helpers</h3>
+            <h3 class="sticky-title d-flex align-items-center">
+                Helpers
+                <form name="filterHelpersForm" class="sticky-search ml-3">
+                    <input type="text" name="filterHelpers" placeholder="Filter Helpers" class="form-control" />
+                </form>
+            </h3>
             <div class="panel panel-default panel-transparent no-bg">
-                <div class="card-header bg-white text-dark clearfix d-none d-lg-block">
+                <div class="sticky-header card-header bg-white text-dark clearfix d-none d-lg-block">
                     <div class="d-flex flex-wrap">
                         <div class="col-xl-4 d-none d-xl-block">
                             name
@@ -154,7 +161,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- addClass -->
                         <section id="addClass" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">addClass( elements, cssClasses )</pre>
+                                <pre data-fn-name class="text-green">addClass( elements, cssClasses )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -198,7 +205,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- ajaxCall -->
                         <section id="ajaxCall" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">ajaxCall( options = {}, canAbortOrController = false )</pre>
+                                <pre data-fn-name class="text-green">ajaxCall( options = {}, canAbortOrController = false )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -293,7 +300,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- ajaxCallXhr -->
                         <section id="ajaxCallXhr" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">ajaxCallXhr( options )</pre>
+                                <pre data-fn-name class="text-green">ajaxCallXhr( options )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -356,7 +363,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- checkDirtyField -->
                         <section id="checkDirtyField" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">checkDirtyField( fields, cssClasses )</pre>
+                                <pre data-fn-name class="text-green">checkDirtyField( fields, cssClasses )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -403,7 +410,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- checkFormElement -->
                         <section id="checkFormElement" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">checkFormElement( formEl )</pre>
+                                <pre data-fn-name class="text-green">checkFormElement( formEl )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -446,7 +453,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- deepFreeze -->
                         <section id="deepFreeze" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">deepFreeze( obj )</pre>
+                                <pre data-fn-name class="text-green">deepFreeze( obj )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -480,7 +487,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- emitEvent -->
                         <section id="emitEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">emitEvent( elem, eventName, eventOptions  )</pre>
+                                <pre data-fn-name class="text-green">emitEvent( elem, eventName, eventOptions  )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -526,7 +533,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- emitCustomEvent -->
                         <section id="emitCustomEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">emitCustomEvent( elem, eventName, eventOptions  )</pre>
+                                <pre data-fn-name class="text-green">emitCustomEvent( elem, eventName, eventOptions  )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -572,7 +579,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- fillForm -->
                         <section id="fillForm" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">fillForm( formEl, data[, skipFilledFields = false] )</pre>
+                                <pre data-fn-name class="text-green">fillForm( formEl, data[, skipFilledFields = false] )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -636,7 +643,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getAge -->
                         <section id="getAge" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getAge( dateString )</pre>
+                                <pre data-fn-name class="text-green">getAge( dateString )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -672,7 +679,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getAgeBetween -->
                         <section id="getAgeBetween" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getAgeBetween( dateString1, dateString2 )</pre>
+                                <pre data-fn-name class="text-green">getAgeBetween( dateString1, dateString2 )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -714,7 +721,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getDateSeparator -->
                         <section id="getDateSeparator" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getDateSeparator( dateString[, checkIso8601separator = true] )</pre>
+                                <pre data-fn-name class="text-green">getDateSeparator( dateString[, checkIso8601separator = true] )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -755,7 +762,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getElements -->
                         <section id="getElements" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getElements( elements )</pre>
+                                <pre data-fn-name class="text-green">getElements( elements )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -794,7 +801,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getFilledFields -->
                         <section id="getFilledFields" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getFilledFields( formEl )</pre>
+                                <pre data-fn-name class="text-green">getFilledFields( formEl )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -836,7 +843,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getUniqueFields -->
                         <section id="getUniqueFields" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getUniqueFields( formEl )</pre>
+                                <pre data-fn-name class="text-green">getUniqueFields( formEl )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -878,7 +885,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- getUrlParameter -->
                         <section id="getUrlParameter" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">getUrlParameter( [parameterName] )</pre>
+                                <pre data-fn-name class="text-green">getUrlParameter( [parameterName] )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -914,7 +921,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isDomNode -->
                         <section id="isDomNode" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isDomNode( node )</pre>
+                                <pre data-fn-name class="text-green">isDomNode( node )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -948,7 +955,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isEmptyObject -->
                         <section id="isEmptyObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isEmptyObject( obj )</pre>
+                                <pre data-fn-name class="text-green">isEmptyObject( obj )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -982,7 +989,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isFieldForChangeEvent -->
                         <section id="isFieldForChangeEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isFieldForChangeEvent( fieldEl )</pre>
+                                <pre data-fn-name class="text-green">isFieldForChangeEvent( fieldEl )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1021,7 +1028,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isMobile -->
                         <section id="isMobile" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isMobile</pre>
+                                <pre data-fn-name class="text-green">isMobile</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1046,7 +1053,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isNodeList -->
                         <section id="isNodeList" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isNodeList( nodeList )</pre>
+                                <pre data-fn-name class="text-green">isNodeList( nodeList )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1080,7 +1087,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isPlainObject -->
                         <section id="isPlainObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isPlainObject( obj )</pre>
+                                <pre data-fn-name class="text-green">isPlainObject( obj )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1114,7 +1121,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isValidDate -->
                         <section id="isValidDate" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isValidDate( dateString )</pre>
+                                <pre data-fn-name class="text-green">isValidDate( dateString )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1148,7 +1155,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isValidEmail -->
                         <section id="isValidEmail" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isValidEmail( emailString, checkRfc5322 = true )</pre>
+                                <pre data-fn-name class="text-green">isValidEmail( emailString, checkRfc5322 = true )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1189,7 +1196,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- isValidSelector -->
                         <section id="isValidSelector" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">isValidSelector( stringSelector )</pre>
+                                <pre data-fn-name class="text-green">isValidSelector( stringSelector )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1223,7 +1230,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- mergeObjects -->
                         <section id="mergeObjects" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">mergeObjects( out )</pre>
+                                <pre data-fn-name class="text-green">mergeObjects( out )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1264,7 +1271,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- removeAllWhiteSpaces -->
                         <section id="removeAllWhiteSpaces" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">removeAllWhiteSpaces( string )</pre>
+                                <pre data-fn-name class="text-green">removeAllWhiteSpaces( string )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1298,7 +1305,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- removeClass -->
                         <section id="removeClass" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">removeClass( elements, cssClasses )</pre>
+                                <pre data-fn-name class="text-green">removeClass( elements, cssClasses )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1342,7 +1349,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- removeMulitpleWhiteSpaces -->
                         <section id="removeMulitpleWhiteSpaces" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">removeMulitpleWhiteSpaces( string )</pre>
+                                <pre data-fn-name class="text-green">removeMulitpleWhiteSpaces( string )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1377,7 +1384,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- removeUrlHash -->
                         <section id="removeUrlHash" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">removeUrlHash()</pre>
+                                <pre data-fn-name class="text-green">removeUrlHash()</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1395,7 +1402,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- runCallback -->
                         <section id="runCallback" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">runCallback( fn, data, options )</pre>
+                                <pre data-fn-name class="text-green">runCallback( fn, data, options )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1433,7 +1440,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- runFunctionsSequence -->
                         <section id="runFunctionsSequence" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">runFunctionsSequence( functionsList, data, stopConditionFn )</pre>
+                                <pre data-fn-name class="text-green">runFunctionsSequence( functionsList, data, stopConditionFn )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1486,7 +1493,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- serializeObject -->
                         <section id="serializeObject" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">serializeObject( obj )</pre>
+                                <pre data-fn-name class="text-green">serializeObject( obj )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1520,7 +1527,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- setUrlHash -->
                         <section id="setUrlHash" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">setUrlHash( hashValue )</pre>
+                                <pre data-fn-name class="text-green">setUrlHash( hashValue )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1548,7 +1555,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- toCamelCase -->
                         <section id="toCamelCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">toCamelCase( string )</pre>
+                                <pre data-fn-name class="text-green">toCamelCase( string )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1582,7 +1589,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- toKebabCase -->
                         <section id="toKebabCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">toKebabCase( string, useAllCaps = false )</pre>
+                                <pre data-fn-name class="text-green">toKebabCase( string, useAllCaps = false )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1621,7 +1628,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- toPascalCase -->
                         <section id="toPascalCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">toPascalCase( string )</pre>
+                                <pre data-fn-name class="text-green">toPascalCase( string )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1655,7 +1662,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- toSnakeCase -->
                         <section id="toSnakeCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">toSnakeCase( string, useAllCaps = false )</pre>
+                                <pre data-fn-name class="text-green">toSnakeCase( string, useAllCaps = false )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1694,7 +1701,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                         <!-- webStorage -->
                         <section id="webStorage" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre class="text-green">webStorage</pre>
+                                <pre data-fn-name class="text-green">webStorage</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
@@ -1887,6 +1894,46 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     </div>
 
     <script src="js/include.js"></script>
+    <script>
+        var $form = document.querySelector('form[name="filterHelpersForm"]');
+        var $filterField = $form.querySelector('[name="filterHelpers"]');
+
+        function filterHelpers ( value ) {
+            var $rows = Array.from(document.getElementById('helpers').querySelectorAll('.row-list-separator'));
+
+            if( value.trim().length > 0 ){
+                // HIDE ALL
+                $rows.forEach(function($elem){
+                    $elem.classList.add('d-none');
+                    $elem.classList.remove('d-flex');
+                });
+
+                // FILTER
+                $rows.forEach(function($row){
+                    var fnName = $row.querySelector('[data-fn-name]').textContent.split('(')[0];
+                    if( fnName.indexOf(value) >= 0 ){
+                        $row.classList.remove('d-none');
+                        $row.classList.add('d-flex');
+                    }
+                });
+            } else {
+                // SHOW ALL
+                $rows.forEach(function($elem){
+                    $elem.classList.remove('d-none');
+                    $elem.classList.add('d-flex');
+                });
+            }
+        }
+
+        $form.addEventListener('submit', function(event){
+            event.preventDefault();
+            filterHelpers( $filterField.value );
+        });
+
+        $filterField.addEventListener('input', function(event){
+            filterHelpers( $filterField.value );
+        });
+    </script>
     <script type="module">
         import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';
 

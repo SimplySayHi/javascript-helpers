@@ -1,5 +1,7 @@
 
-export default obj => {
+const deepFreeze = obj => {
+
+    if( !obj ){ return; }
 
     Object.getOwnPropertyNames(obj).forEach(name => {
         const prop = obj[name];
@@ -7,6 +9,9 @@ export default obj => {
             deepFreeze(prop);
         }
     });
+    
     return Object.freeze(obj);
     
 }
+
+export default deepFreeze

@@ -1,4 +1,11 @@
 
+<p>
+JavaScript Helpers are available on 
+<a href="https://www.npmjs.com/package/javascript-helpers" target="_blank">NPM</a> | 
+<a href="https://www.jsdelivr.com/package/gh/simplysayhi/javascript-helpers" target="_blank">jsDelivr</a> | 
+<a href="https://unpkg.com/javascript-helpers/src/index.js" target="_blank">UNPKG</a>
+</p>
+
 # JavaScript Helpers
 
 Visit the [Plugin Documentation Page](https://valeriodipunzio.com/plugins/javascript-helpers/) for more info.

@@ -62,4 +62,50 @@ document.addEventListener('DOMContentLoaded', function(){
     Array.from( document.querySelectorAll('[data-print-current-version]') ).forEach(function( elem ){
         elem.innerHTML = version;
     });
+
+    var $form = document.querySelector('form[name="filterHelpersForm"]');
+    if( $form ){
+        var $filterField = $form.querySelector('[name="filterHelpers"]');
+
+        function filterHelpers ( value ) {
+            value = value.toLowerCase();
+            var $rows = Array.from(document.getElementById('helpers').querySelectorAll('.row-list-separator'));
+
+            if( value.trim().length > 0 ){
+                // HIDE ALL
+                $rows.forEach(function($elem){
+                    $elem.classList.add('d-none');
+                    $elem.classList.remove('d-flex');
+                });
+
+                // FILTER
+                $rows.forEach(function($row){
+                    var fnName = $row.querySelector('[data-fn-name]').textContent.split('(')[0].toLowerCase();
+                    if( fnName.indexOf(value) >= 0 ){
+                        $row.classList.remove('d-none');
+                        $row.classList.add('d-flex');
+                    }
+                });
+            } else {
+                // SHOW ALL
+                $rows.forEach(function($elem){
+                    $elem.classList.remove('d-none');
+                    $elem.classList.add('d-flex');
+                });
+            }
+        }
+
+        $form.addEventListener('submit', function(event){
+            event.preventDefault();
+            filterHelpers( $filterField.value );
+        });
+
+        $filterField.addEventListener('input', function(event){
+            filterHelpers( $filterField.value );
+        });
+
+        if( $filterField.value.trim().length > 0 ){
+            filterHelpers( $filterField.value );
+        }
+    }
 });

@@ -543,6 +543,10 @@ u { text-decoration: none; border-bottom: 1px solid #06d6a0; }
 .dropdown-toggle.dropdown-red-outline[aria-expanded="true"]:after { border-top-color: #fff; }
 .version-num { min-width: 32px; }
 
+[class*="language-"] {
+    border: 0 none;
+}
+
 @media (max-width: 575px){
     h3 { font-size: 1.5em; }
 }

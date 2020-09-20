@@ -13,6 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:500|Raleway:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/prism.css">
+
+    <script defer src="js/prism.js"></script>
+    <script defer src="js/include.js"></script>
 </head>
 
 <body>
@@ -109,7 +113,7 @@
                 <code>Array.from</code> <code>Element.prototype.closest</code> <code>Element.prototype.matches</code> <code>Promise</code> <code>Promise.prototype.finally</code> <code>AbortController</code> <code>fetch</code> <code>Event</code> <code>CustomEvent</code>
             </p>
             <pre>
-&lt;script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch,Event,CustomEvent"&gt;&lt;/script&gt;</pre>
+<code class="language-html">&lt;script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=Array.from,Element.prototype.closest,Element.prototype.matches,Promise,Promise.prototype.finally,AbortController,fetch,Event,CustomEvent"&gt;&lt;/script&gt;</code></pre>
         </div>
 
         <!-- Usage -->
@@ -119,14 +123,14 @@
                 Install via NPM:
             </p>
             <pre>
-npm install javascript-helpers
+<code class="language-markup">npm install javascript-helpers</code>
 </pre>
             <p>
                 and use as ES6 module loading the modules you need.<br />
                 For example:
             </p>
             <pre>
-import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
+<code class="language-js">import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';</code>
 </pre>
             <p>
                 Note: Remember to use tree-shaking techniques to avoid importing all modules from JavaScript Helpers.
@@ -222,16 +226,16 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                             <span class="text-green">options</span>: ( Object ) as per fetch options but you can also add these:
                                         </p>
                                         <pre>
-{
+<code class="language-js">{
     url: 'path-to/my-remote-service',
     timeout: 10000
-}
+}</code>
 </pre>
                                         <p class="m-0">
                                             Default options object is:
                                         </p>
                                         <pre>
-{
+<code class="language-js">{
     cache:          'no-store',
     credentials:    'same-origin',
     headers: {
@@ -242,7 +246,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     redirect:       'follow',
     timeout:        0,
     url:            location.href
-}
+}</code>
 </pre>
                                         <p>
                                             Note that "headers" is passed as plain object.
@@ -262,10 +266,10 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     <br /><br />
                                     If <code>canAbortOrController</code> is changed from default value, ajaxCall will return this instead:
                                 </p>
-<pre>{
+<pre><code class="language-js">{
     abort: Function,
     ready: fetchPromise
-}
+}</code>
 </pre>
                                 <ul>
                                     <li>
@@ -320,7 +324,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                             Default options object is:
                                         </p>
                                         <pre>
-{
+<code class="language-js">{
     async:      true,
     cache:      false,
     headers: {
@@ -332,7 +336,7 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
     timeout:    0,
     url:        location.href,
     username:   null
-}
+}</code>
 </pre>
                                         <p>
                                             Note that "headers" is passed as plain object.
@@ -435,10 +439,10 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <pre>
-{
+<code class="language-js">{
     result: true,
     element: HTML_Element
-}
+}</code>
 </pre>
                                 <p class="m-0">
                                     Polyfills you may need:
@@ -514,9 +518,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                             <span class="text-green">eventOptions</span>: ( Object ) See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/Event" target="_blank">eventInit</a> on MDN documentation.<br />
                                             Default:
                                         </p>
-<pre>{
+<pre><code class="language-js">{
     bubbles: true
-}
+}</code>
 </pre>
                                     </li>
                                 </ul>
@@ -565,9 +569,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                             <span class="text-green">eventOptions</span>: ( Object ) See <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent" target="_blank">customEventInit</a> on MDN documentation.<br />
                                             Default:
                                         </p>
-<pre>{
+<pre><code class="language-js">{
     bubbles: true
-}
+}</code>
 </pre>
                                     </li>
                                 </ul>
@@ -1756,9 +1760,9 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
                                     Return value:
                                 </p>
                                 <pre>
-{
+<code class="language-js">{
     isAvailable: true
-}
+}</code>
 </pre>
                                 <p>
                                     Polyfills you may need: None
@@ -1904,7 +1908,6 @@ import { ajaxCall, fillForm, runFunctionsSequence } from 'javascript-helpers';
 
     </div>
 
-    <script src="js/include.js"></script>
     <script type="module">
         // import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';
 

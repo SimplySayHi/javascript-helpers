@@ -5,6 +5,7 @@ export { default as ajaxCallXhr }                from './modules/ajaxCallXhr/aja
 export { default as checkDirtyField }            from './modules/checkDirtyField/checkDirtyField.js';
 export { default as checkFormElement }           from './modules/checkFormElement/checkFormElement.js';
 export { default as deepFreeze }                 from './modules/deepFreeze/deepFreeze.js';
+export { default as delegateEvent }              from './modules/delegateEvent/delegateEvent.js';
 export { default as emitEvent }                  from './modules/emitEvent/emitEvent.js';
 export { default as emitCustomEvent }            from './modules/emitCustomEvent/emitCustomEvent.js';
 export { default as fillForm }                   from './modules/fillForm/fillForm.js';

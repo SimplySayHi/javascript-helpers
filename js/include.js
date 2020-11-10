@@ -1,6 +1,6 @@
 
-var currentVersion = '1.3.0';
-var isLocalEnv = location.protocol.indexOf('http') === -1 || location.host.indexOf('127.0.0.1') > -1;
+var currentVersion = '1.4.0';
+// var isLocalEnv = location.protocol.indexOf('http') === -1 || location.host.indexOf('127.0.0.1') > -1;
 
 document.addEventListener('click', function(e){
     var key = e.which || e.keyCode;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if( $form ){
         var $filterField = $form.querySelector('[name="filterHelpers"]');
 
-        function filterHelpers ( value ) {
+        var filterHelpers = function ( value ) {
             value = value.toLowerCase();
             var $rows = Array.from(document.getElementById('helpers').querySelectorAll('.row-list-separator'));
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function(){
             filterHelpers( $filterField.value );
         });
 
-        $filterField.addEventListener('input', function(event){
+        $filterField.addEventListener('input', function(){
             filterHelpers( $filterField.value );
         });
 

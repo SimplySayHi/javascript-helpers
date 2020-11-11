@@ -1518,6 +1518,47 @@
                             </div>
                         </section>
 
+                        <!-- replaceTemplateStrings -->
+                        <section id="replaceTemplateStrings" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">replaceTemplateStrings( obj, string = '' )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Take each key of the passed <code>obj</code> and replace it in <code>string</code> with the corresponsing value.
+                                    <br />
+                                    Key names in string must be wrapped, like: <code>{{name}}</code>
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">obj</span>: ( Object ) Object with keys and values to replace in <code>stringHTML</code>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">string</span>: ( String ) String containing wrapped keys to be replaced
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    String
+                                </p>
+                                <p>
+                                    Polyfills you may need: None
+                                </p>
+                            </div>
+                        </section>
+
                         <!-- runCallback -->
                         <section id="runCallback" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -1892,6 +1933,9 @@
                             </li>
                             <li>
                                 Added "delegateEvent"
+                            </li>
+                            <li>
+                                Added "replaceTemplateStrings"
                             </li>
                         </ul>
                     </div>

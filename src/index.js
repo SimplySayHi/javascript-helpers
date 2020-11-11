@@ -31,6 +31,7 @@ export { default as removeAllWhiteSpaces }      from './modules/removeAllWhiteSp
 export { default as removeClass }               from './modules/removeClass/removeClass.js';
 export { default as removeMulitpleWhiteSpaces } from './modules/removeMulitpleWhiteSpaces/removeMulitpleWhiteSpaces.js';
 export { default as removeUrlHash }             from './modules/removeUrlHash/removeUrlHash.js';
+export { default as replaceTemplateStrings }    from './modules/replaceTemplateStrings/replaceTemplateStrings.js';
 export { default as runCallback }               from './modules/runCallback/runCallback.js';
 export { default as runFunctionsSequence }      from './modules/runFunctionsSequence/runFunctionsSequence.js';
 export { default as serializeObject }           from './modules/serializeObject/serializeObject.js';

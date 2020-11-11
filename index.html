@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Documentation | JavaScript Helpers</title>
+    <title>Documentation | JavaScript Helpers - Make JavaScript Development Easier</title>
     <meta name="description" content="JavaScript Helpers">
     <meta name="keywords" content="helpers, utils, javascript">
     <meta name="author" content="Valerio Di Punzio">
@@ -204,6 +204,50 @@
                                         <code>Array.from</code>
                                     </li>
                                 </ul>
+                            </div>
+                        </section>
+
+                        <!-- arrayMove -->
+                        <section id="arrayMove" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">arrayMove( array, fromIndex, toIndex )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Move one element of an array, from the specified index to the new one.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">array</span>: ( Array ) the list of elements
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">fromIndex</span>: ( Number ) Index of the element you want to move
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">toIndex</span>: ( Number ) Index you want the element to be moved to
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Modified array ( original array is not affected )
+                                </p>
+                                <p class="m-0">
+                                    Polyfills you may need: None
+                                </p>
                             </div>
                         </section>
 
@@ -1842,9 +1886,14 @@
                 <li class="media my-3">
                     <div class="version-num text-red" data-print-current-version></div>
                     <div class="media-body pl-2">
-                        <li>
-                            Added "delegateEvent"
-                        </li>
+                        <ul>
+                            <li>
+                                Added "arrayMove"
+                            </li>
+                            <li>
+                                Added "delegateEvent"
+                            </li>
+                        </ul>
                     </div>
                 </li>
             </ul>

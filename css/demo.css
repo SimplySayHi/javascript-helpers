@@ -546,6 +546,14 @@ u { text-decoration: none; border-bottom: 1px solid #06d6a0; }
     border: 0 none;
 }
 
+@media (max-width: 767px){
+    .dropdown-item {
+        font-size: 20px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
 @media (max-width: 575px){
     h3 { font-size: 1.5em; }
     .sticky-search .form-control {

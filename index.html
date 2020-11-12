@@ -536,12 +536,12 @@
                         <!-- delegateEvent -->
                         <section id="delegateEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre data-fn-name class="text-green">delegateEvent( eventName, { $ancestor, target, data, useCapture = false }, callback )</pre>
+                                <pre data-fn-name class="text-green">delegateEvent( eventName, { $ancestor, selector, data, useCapture = false }, callback )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Attach a <code>callback</code> function to one event for all elements that match the <code>target</code> selector, now or in the future, based on <code>$ancestor</code> root element(s).
+                                    Attach a <code>callback</code> function to one event for all elements that match the <code>selector</code>, now or in the future, based on <code>$ancestor</code> root element(s).
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -564,7 +564,7 @@
                                             </li>
                                             <li>
                                                 <p class="m-0">
-                                                    <span class="text-green">target</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
+                                                    <span class="text-green">selector</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
                                                 </p>
                                             </li>
                                             <li>
@@ -576,7 +576,7 @@
                                     </li>
                                     <li>
                                         <p>
-                                            <span class="text-green">callback</span>: ( Function ) Function to be executed when the event is triggered. The keyword <code>this</code> is bound to the element matching the <code>target</code> selector.
+                                            <span class="text-green">callback</span>: ( Function ) Function to be executed when the event is triggered. The keyword <code>this</code> is bound to the element matching the <code>selector</code>.
                                         </p>
                                     </li>
                                 </ul>

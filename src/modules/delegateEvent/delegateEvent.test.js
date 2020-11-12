@@ -36,13 +36,13 @@ describe( 'Delegate Event', () => {
 
     test( 'Delegate Event: All set', () => {
         const $ancestor = document.querySelector('header');
-        const target = '[data-js-action="doSomething"]';
+        const selector = '[data-js-action="doSomething"]';
         const data = { greeting: 'Hi' };
         const callback = jest.fn();
         
         delegateEvent(
             'click',
-            { $ancestor, target, data },
+            { $ancestor, selector, data },
             callback
         );
 
@@ -53,13 +53,13 @@ describe( 'Delegate Event', () => {
 
     test( 'Delegate Event: $ancestor missing => callback NOT called', () => {
         const $ancestor = null;
-        const target = '[data-js-action="doSomething"]';
+        const selector = '[data-js-action="doSomething"]';
         const data = { greeting: 'Hi' };
         const callback = jest.fn();
         
         delegateEvent(
             'click',
-            { $ancestor, target, data },
+            { $ancestor, selector, data },
             callback
         );
 

@@ -1,15 +1,15 @@
 
 import getElements from '../getElements/getElements.js';
 
-export default ( eventName, {$ancestor, selector, data, useCapture = false}, callback ) => {
+export default ( {ancestor, target, data, useCapture = false}, eventName, callback ) => {
 
-    getElements($ancestor).forEach($anc => {
+    getElements(ancestor).forEach($anc => {
         $anc.addEventListener(
             eventName,
             event => {
-                const $target = event.target.closest(selector);
-                if( $anc.contains($target) ){
-                    callback.call($target, event, data);
+                const $element = event.target.closest(target);
+                if( $anc.contains($element) ){
+                    callback.call($element, event, data);
                 }
             },
             useCapture

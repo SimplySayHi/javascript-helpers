@@ -3,7 +3,7 @@ import delegateEvent from './delegateEvent';
 
 /*
     ALL PARAMETERS ( EXCEPT data AND useCapture ) ARE MANDATORY.
-    CASES OF MISSING PARAMETERS ARE NOT MANAGED EXCEPT FOR $ancestor SINCE IT USES getElements
+    CASES OF MISSING PARAMETERS ARE NOT MANAGED EXCEPT FOR ancestor SINCE IT USES getElements
 */
 
 describe( 'Delegate Event', () => {
@@ -34,15 +34,15 @@ describe( 'Delegate Event', () => {
         `;
     } );
 
-    test( 'Delegate Event: All set', () => {
-        const $ancestor = document.querySelector('header');
-        const selector = '[data-js-action="doSomething"]';
+    test( 'Delegate Event: All set => ancestor as DOM node', () => {
+        const ancestor = document.querySelector('header');
+        const target = '[data-js-action="doSomething"]';
         const data = { greeting: 'Hi' };
         const callback = jest.fn();
         
         delegateEvent(
+            { ancestor, target, data },
             'click',
-            { $ancestor, selector, data },
             callback
         );
 
@@ -51,15 +51,66 @@ describe( 'Delegate Event', () => {
         expect( callback ).toHaveBeenCalled();
     } );
 
-    test( 'Delegate Event: $ancestor missing => callback NOT called', () => {
-        const $ancestor = null;
-        const selector = '[data-js-action="doSomething"]';
+    test( 'Delegate Event: All set => ancestor as DOM node but trigger click outside', () => {
+        const ancestor = document.querySelector('header');
+        const target = '[data-js-action="doSomething"]';
         const data = { greeting: 'Hi' };
         const callback = jest.fn();
         
         delegateEvent(
+            { ancestor, target, data },
             'click',
-            { $ancestor, selector, data },
+            callback
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('li').click();
+        expect( callback ).not.toHaveBeenCalled();
+    } );
+
+    test( 'Delegate Event: All set => ancestor as NodeList', () => {
+        const ancestor = document.querySelectorAll('header');
+        const target = '[data-js-action="doSomething"]';
+        const data = { greeting: 'Hi' };
+        const callback = jest.fn();
+        
+        delegateEvent(
+            { ancestor, target, data },
+            'click',
+            callback
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('[data-num="2"]').click();
+        expect( callback ).toHaveBeenCalled();
+    } );
+
+    test( 'Delegate Event: All set => ancestor as CSS selector', () => {
+        const ancestor = 'header';
+        const target = '[data-js-action="doSomething"]';
+        const data = { greeting: 'Hi' };
+        const callback = jest.fn();
+        
+        delegateEvent(
+            { ancestor, target, data },
+            'click',
+            callback
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('[data-num="2"]').click();
+        expect( callback ).toHaveBeenCalled();
+    } );
+
+    test( 'Delegate Event: ancestor missing => callback NOT called', () => {
+        const ancestor = null;
+        const target = '[data-js-action="doSomething"]';
+        const data = { greeting: 'Hi' };
+        const callback = jest.fn();
+        
+        delegateEvent(
+            { ancestor, target, data },
+            'click',
             callback
         );
 

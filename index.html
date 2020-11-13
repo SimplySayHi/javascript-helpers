@@ -536,22 +536,19 @@
                         <!-- delegateEvent -->
                         <section id="delegateEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre data-fn-name class="text-green">delegateEvent( eventName, { $ancestor, selector, data, useCapture = false }, callback )</pre>
+                                <pre data-fn-name class="text-green">delegateEvent( { ancestor, target, data, useCapture = false }, eventName, callback )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Attach a <code>callback</code> function to one event for all elements that match the <code>selector</code>, now or in the future, based on <code>$ancestor</code> root element(s).
+                                    Attach a <code>callback</code> function to one event for all elements that match the <code>target</code>, now or in the future, based on <code>ancestor</code> root element(s).
+                                    <br /><br />
+                                    All arguments are mandatory except for <code>data</code> and <code>useCapture</code>.
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
                                 </p>
                                 <ul>
-                                    <li>
-                                        <p>
-                                            <span class="text-green">eventName</span>: ( String ) Event name on which the callback function will be triggered.
-                                        </p>
-                                    </li>
                                     <li>
                                         <p class="m-0">
                                             <span class="text-green">[Object]</span>: ( Object ) An object with:
@@ -559,12 +556,17 @@
                                         <ul class="mb-3">
                                             <li>
                                                 <p class="m-0">
-                                                    <span class="text-green">$ancestor</span>: ( NodeList | HTML Element ) Container element to which the event will be attached ( it MUST be present when calling <code>delegateEvent</code> ).
+                                                    <span class="text-green">ancestor</span>: ( NodeList | HTML Element | Selector ) Container element to which the event will be attached ( MUST exist when calling <code>delegateEvent</code> ).
                                                 </p>
                                             </li>
                                             <li>
                                                 <p class="m-0">
-                                                    <span class="text-green">selector</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
+                                                    <span class="text-green">target</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">data</span>: ( Object - optional ) Object to be passed to the callback function.
                                                 </p>
                                             </li>
                                             <li>
@@ -576,8 +578,27 @@
                                     </li>
                                     <li>
                                         <p>
-                                            <span class="text-green">callback</span>: ( Function ) Function to be executed when the event is triggered. The keyword <code>this</code> is bound to the element matching the <code>selector</code>.
+                                            <span class="text-green">eventName</span>: ( String ) Event name on which the callback function will be triggered.
                                         </p>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">callback</span>: ( Function ) Function to be executed when the event is triggered. The keyword <code>this</code> is bound to the element matching the <code>target</code>.
+                                            <br />
+                                            Callback has these parameters:
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">event</span>: ( Event ) The original event object
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">data</span>: ( Object ) data as passed to delegateEvent or undefined if not passed
+                                                </p>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>

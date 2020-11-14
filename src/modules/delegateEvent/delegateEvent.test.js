@@ -102,6 +102,24 @@ describe( 'Delegate Event', () => {
         expect( callback ).toHaveBeenCalled();
     } );
 
+    test( 'Delegate Event: All set => ancestor as DOM node and target as multiple selector', () => {
+        const ancestor = document.querySelector('header');
+        const target = '[data-num="1"], [data-num="2"]';
+        const data = { greeting: 'Hi' };
+        const callback = jest.fn();
+        
+        delegateEvent(
+            { ancestor, target, data },
+            'click',
+            callback
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('[data-num="1"]').click();
+        document.querySelector('[data-num="2"]').click();
+        expect( callback ).toHaveBeenCalledTimes( 2 );
+    } );
+
     test( 'Delegate Event: ancestor missing => callback NOT called', () => {
         const ancestor = null;
         const target = '[data-js-action="doSomething"]';

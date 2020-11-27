@@ -66,10 +66,16 @@ document.addEventListener('DOMContentLoaded', function(){
     var $form = document.querySelector('form[name="filterHelpersForm"]');
     if( $form ){
         var $filterField = $form.querySelector('[name="filterHelpers"]');
+        var rowsCount = document.getElementById('helpers').querySelectorAll('.row-list-separator').length;
+
+        $filterField.placeholder = $filterField.placeholder + ' (' + rowsCount + ')';
 
         var filterHelpers = function ( value ) {
             value = value.toLowerCase();
             var $rows = Array.from(document.getElementById('helpers').querySelectorAll('.row-list-separator'));
+            var $searchCount = document.querySelector('[data-search-count]');
+
+            $searchCount.innerHTML = '';
 
             if( value.trim().length > 0 ){
                 // HIDE ALL
@@ -79,12 +85,16 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
 
                 // FILTER
-                $rows.forEach(function($row){
+                var $filteredRows = $rows.filter(function($row){
                     var fnName = $row.querySelector('[data-fn-name]').textContent.split('(')[0].toLowerCase();
-                    if( fnName.indexOf(value) >= 0 ){
-                        $row.classList.remove('d-none');
-                        $row.classList.add('d-flex');
-                    }
+                    return fnName.indexOf(value) >= 0;
+                });
+
+                $searchCount.innerHTML = $filteredRows.length;
+
+                $filteredRows.forEach(function($row){
+                    $row.classList.remove('d-none');
+                    $row.classList.add('d-flex');
                 });
             } else {
                 // SHOW ALL

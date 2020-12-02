@@ -626,7 +626,7 @@
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Dispatch an event on the specified object and with specified event options.
+                                    Dispatch an event on the specified element(s) and with specified event options.
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -634,7 +634,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elem</span>: ( HTML Element )
+                                            <span class="text-green">elem</span>: ( NodeList | HTML Element | Selector )
                                         </p>
                                     </li>
                                     <li>
@@ -677,7 +677,7 @@
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Dispatch a custom event on the specified object and with specified event options, where you can add object <code>detail</code>.
+                                    Dispatch a custom event on the specified element(s) and with specified event options, where you can add object <code>detail</code>.
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -685,7 +685,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elem</span>: ( HTML Element )
+                                            <span class="text-green">elem</span>: ( NodeList | HTML Element | Selector )
                                         </p>
                                     </li>
                                     <li>
@@ -1954,24 +1954,10 @@
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Added "arrayMove"
+                                Fixed bug for "emitEvent" and "emitCustomEvent" where parameter "eventOptions" was not used properly
                             </li>
                             <li>
-                                Added "delegateEvent"
-                            </li>
-                            <li>
-                                Added "replaceTemplateStrings"
-                            </li>
-                            <li>
-                                <span class="text-red">DEPRECATED</span> features:
-                                <ul>
-                                    <li>
-                                        checkDirtyField
-                                    </li>
-                                    <li>
-                                        checkFormElement
-                                    </li>
-                                </ul>
+                                Improved "emitEvent" and "emitCustomEvent" to let you pass NodeList, HTML Element or CSS Selector as first argument
                             </li>
                         </ul>
                     </div>
@@ -1986,6 +1972,33 @@
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.4.0</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Added "arrayMove"
+                                    </li>
+                                    <li>
+                                        Added "delegateEvent"
+                                    </li>
+                                    <li>
+                                        Added "replaceTemplateStrings"
+                                    </li>
+                                    <li>
+                                        <span class="text-red">DEPRECATED</span> features:
+                                        <ul>
+                                            <li>
+                                                checkDirtyField
+                                            </li>
+                                            <li>
+                                                checkFormElement
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.3.0</div>
                             <div class="media-body pl-2">

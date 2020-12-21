@@ -1,5 +1,5 @@
 
-var currentVersion = '1.4.1';
+var currentVersion = '1.4.2';
 // var isLocalEnv = location.protocol.indexOf('http') === -1 || location.host.indexOf('127.0.0.1') > -1;
 
 document.addEventListener('click', function(e){

@@ -2,7 +2,7 @@
     "name": "javascript-helpers",
     "title": "JavaScript Helpers",
     "description": "List of useful JavaScript functions to make development easier",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "main": "src/index.js",
     "homepage": "https://valeriodipunzio.com/plugins/javascript-helpers/",
     "author": {

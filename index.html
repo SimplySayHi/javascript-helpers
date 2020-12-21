@@ -9,7 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Raleway:200" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:500|Raleway:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/demo.css">
@@ -1953,12 +1952,7 @@
                     <div class="version-num text-red" data-print-current-version></div>
                     <div class="media-body pl-2">
                         <ul>
-                            <li>
-                                Fixed bug for "emitEvent" and "emitCustomEvent" where parameter "eventOptions" was not used properly
-                            </li>
-                            <li>
-                                Improved "emitEvent" and "emitCustomEvent" to let you pass NodeList, HTML Element or CSS Selector as first argument
-                            </li>
+                            Fixed bug on "ajaxCall" when response is not ok
                         </ul>
                     </div>
                 </li>
@@ -1972,6 +1966,19 @@
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">1.4.1</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Fixed bug for "emitEvent" and "emitCustomEvent" where parameter "eventOptions" was not used properly
+                                    </li>
+                                    <li>
+                                        Improved "emitEvent" and "emitCustomEvent" to let you pass NodeList, HTML Element or CSS Selector as first argument
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.4.0</div>
                             <div class="media-body pl-2">
@@ -2120,6 +2127,18 @@
 
     <script type="module">
         // import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';
+
+        // TEST BASIC AJAX CALL
+        /* ajaxCall({
+            method: 'GET',
+            url: './package.json'
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        }) */
 
         // USE OF OPTION timeout => WILL NOT RESPOND TO abort EVENT LISTENERS
         /* let myCall1 = ajaxCall({

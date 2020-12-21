@@ -10,7 +10,6 @@ const runFetch = (options, timeoutTimer) => {
     return fetch( options.url, options )
     .then(response => {
         if( !response.ok ){
-            // return Promise.reject(response);
             throw new Error(response.statusText);
         }
         const fetchMethod = getFetchMethod( response, options );

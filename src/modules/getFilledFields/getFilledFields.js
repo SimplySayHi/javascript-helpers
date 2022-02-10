@@ -4,26 +4,26 @@ import getElements from '../getElements/getElements.js';
 
 export default ( formEl = null ) => {
 
-    formEl = getElements(formEl)[0];
+    const $form = getElements(formEl)[0];
 
-    if( !formEl ){ return [] };
+    if( !$form ){ return [] }
     
-    return getUniqueFields( formEl )
-        .map(fieldEl => {
-            const name = fieldEl.name,
-                type = fieldEl.type,
+    return getUniqueFields( $form )
+        .map($field => {
+            const name = $field.name,
+                type = $field.type,
                 isCheckboxOrRadio = (type === 'checkbox' || type === 'radio'),
-                fieldChecked = formEl.querySelector('[name="' + name + '"]:checked'),
-                isReqFrom = fieldEl.matches('[data-required-from]'),
-                reqMoreEl = (isReqFrom ? formEl.querySelector(fieldEl.getAttribute('data-required-from')) : null);
+                fieldChecked = $form.querySelector('[name="' + name + '"]:checked'),
+                isReqFrom = $field.matches('[data-required-from]'),
+                reqMoreEl = (isReqFrom ? $form.querySelector($field.getAttribute('data-required-from')) : null);
 
             return (
                 isCheckboxOrRadio ? (fieldChecked || null) :
-                (isReqFrom && reqMoreEl.checked) || (!isReqFrom && fieldEl.value) ? fieldEl : null
+                (isReqFrom && reqMoreEl.checked) || (!isReqFrom && $field.value) ? $field : null
             );
         })
-        .filter(fieldEl => {
-            return  fieldEl !== null;
+        .filter($field => {
+            return  $field !== null;
         });
 
 }

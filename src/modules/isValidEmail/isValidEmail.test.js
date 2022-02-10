@@ -147,14 +147,14 @@ describe( 'Is Valid Email', () => {
     /* TEST FOR checkRfc5322 = true */
     for (const email of validEmails) {
         test( `Email passed as "${email}"`, () => {
-            const expectTest = isValidEmail( email );
+            const expectTest = isValidEmail( email, true );
             const expectedResult = true;
             expect( expectTest ).toBe( expectedResult );
         } );
     }
     for (const email of invalidEmails) {
         test( `Email passed as "${email}"`, () => {
-            const expectTest = isValidEmail( email );
+            const expectTest = isValidEmail( email, true );
             const expectedResult = false;
             expect( expectTest ).toBe( expectedResult );
         } );
@@ -163,14 +163,14 @@ describe( 'Is Valid Email', () => {
     /* TEST FOR checkRfc5322 = false */
     for (const email of validEmailsCommon) {
         test( `Email passed as "${email}" with 2nd param false`, () => {
-            const expectTest = isValidEmail( email, false );
+            const expectTest = isValidEmail( email );
             const expectedResult = true;
             expect( expectTest ).toBe( expectedResult );
         } );
     }
     for (const email of invalidEmailsCommon) {
         test( `Email passed as "${email}" with 2nd param false`, () => {
-            const expectTest = isValidEmail( email, false );
+            const expectTest = isValidEmail( email );
             const expectedResult = false;
             expect( expectTest ).toBe( expectedResult );
         } );

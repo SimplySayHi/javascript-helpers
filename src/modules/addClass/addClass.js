@@ -1,18 +1,18 @@
 
 import getElements from '../getElements/getElements.js';
 
-export default ( elements = [], cssClasses = '' ) => {
+export default ( elements, cssClasses ) => {
 
-    elements = getElements( elements );
+    const elemList = getElements( elements );
 
-    if( !cssClasses ){ return elements; }
+    if( !cssClasses ){ return elemList; }
 
-    elements.forEach(elem => {
+    elemList.forEach($elem => {
         cssClasses.split(' ').forEach(className => {
-            elem.classList.add( className );
+            $elem.classList.add( className );
         });
     });
 
-    return elements;
+    return elemList;
 
 }

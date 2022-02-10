@@ -4,23 +4,23 @@ const fieldsStringSelector = 'input:not([type="reset"]):not([type="submit"]):not
 
 export default ( formEl = null ) => {
 
-    let lastFieldName = '',
-        lastFieldType = '';
+    let lastFieldName = '';
+    let lastFieldType = '';
 
-    formEl = getElements(formEl)[0];
+    const $form = getElements(formEl)[0];
 
-    if( !formEl ){ return [] };
+    if( !$form ){ return [] }
 
-    return Array.from( formEl.querySelectorAll(fieldsStringSelector) )
-        .filter(fieldEl => {
-            const name = fieldEl.name,
-                type = fieldEl.type;
+    return Array.from( $form.querySelectorAll(fieldsStringSelector) )
+        .filter($field => {
+            const name = $field.name,
+                type = $field.type;
 
             if( name === lastFieldName && type === lastFieldType ){
                 return false;
             }
             
-            if( !fieldEl.matches('[data-required-from]') ){
+            if( !$field.matches('[data-required-from]') ){
                 lastFieldName = name;
                 lastFieldType = type;
             }

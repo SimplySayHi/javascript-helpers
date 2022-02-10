@@ -3,16 +3,16 @@ import getElements from '../getElements/getElements.js';
 
 export default ( elements = [], cssClasses = '' ) => {
 
-    elements = getElements(elements);
+    const elemList = getElements(elements);
 
-    if( !cssClasses ){ return elements; }
+    if( !cssClasses ){ return elemList; }
 
-    elements.forEach(function(elem){
-        cssClasses.split(' ').forEach(function(className){
-            elem.classList.remove( className );
+    elemList.forEach($elem => {
+        cssClasses.split(' ').forEach(className => {
+            $elem.classList.remove( className );
         });
     });
 
-    return elements;
+    return elemList;
     
 }

@@ -25,7 +25,6 @@ module.exports = {
       "<rootDir>/src/modules/**/*.js",
       "!<rootDir>/src/modules/**/*.ignore-test.js",
       "!<rootDir>/src/modules/ajaxCall/**/*.js",
-      "!<rootDir>/src/modules/ajaxCallXhr/**/*.js",
       "!<rootDir>/src/modules/emitEvent/**/*.js",
       "!<rootDir>/src/modules/emitCustomEvent/**/*.js",
       "!<rootDir>/src/modules/webStorage/**/*.js"

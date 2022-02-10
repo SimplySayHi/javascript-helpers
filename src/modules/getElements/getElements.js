@@ -3,7 +3,7 @@ import isDomNode        from "../isDomNode/isDomNode.js";
 import isNodeList       from "../isNodeList/isNodeList.js";
 import isValidSelector  from "../isValidSelector/isValidSelector.js";
 
-export default (elements) => {
+export default (elements = []) => {
 
     if( isNodeList(elements) ){
 

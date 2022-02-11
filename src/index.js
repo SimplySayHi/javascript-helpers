@@ -1,10 +1,7 @@
 
 export { default as addClass }                  from './modules/addClass/addClass.js';
 export { default as ajaxCall }                  from './modules/ajaxCall/ajaxCall.js';
-export { default as ajaxCallXhr }               from './modules/ajaxCallXhr/ajaxCallXhr.js';
 export { default as arrayMove }                 from './modules/arrayMove/arrayMove.js';
-export { default as checkDirtyField }           from './modules/checkDirtyField/checkDirtyField.js';
-export { default as checkFormElement }          from './modules/checkFormElement/checkFormElement.js';
 export { default as deepFreeze }                from './modules/deepFreeze/deepFreeze.js';
 export { default as delegateEvent }             from './modules/delegateEvent/delegateEvent.js';
 export { default as emitEvent }                 from './modules/emitEvent/emitEvent.js';

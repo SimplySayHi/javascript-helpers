@@ -266,7 +266,7 @@
                                 </p>
 <pre><code class="language-js">{
     abort: Function,
-    ready: fetchPromise
+    ready: Promise
 }</code>
 </pre>
                                 <ul>
@@ -484,7 +484,7 @@
                                 </p>
                                 <pre>
 <code class="language-js">{
-    result: true,
+    result: Boolean,
     element: HTML_Element
 }</code>
 </pre>
@@ -1887,8 +1887,9 @@
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    This is useful to check if web storage is available in the browser ( local storage and session storage ).<br />
-                                    If web storage is available, this will add 2 new methods for web storage:
+                                    This is useful to check if web storage is available in the browser ( local storage and session storage ) and to extend its functionalities.
+                                    <br />
+                                    Call <code>webStorage.extend()</code> will add 2 new methods for web storage ( if web storage is available ):
                                 </p>
                                 <ul>
                                     <li>
@@ -1927,7 +1928,8 @@
                                 </p>
                                 <pre>
 <code class="language-js">{
-    isAvailable: true
+    isAvailable: Boolean,
+    extend: Function
 }</code>
 </pre>
                                 <p>

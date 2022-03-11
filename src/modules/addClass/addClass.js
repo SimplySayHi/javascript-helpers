@@ -8,9 +8,7 @@ export default ( elements, cssClasses ) => {
     if( !cssClasses ){ return elemList; }
 
     elemList.forEach($elem => {
-        cssClasses.split(' ').forEach(className => {
-            $elem.classList.add( className );
-        });
+        $elem.classList.add( ...cssClasses.split(' ') );
     });
 
     return elemList;

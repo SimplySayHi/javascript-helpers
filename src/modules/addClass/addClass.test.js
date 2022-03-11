@@ -7,10 +7,24 @@ describe( 'Add Class', () => {
         document.body.innerHTML = '<div id="mock"></div><div class="mock"></div><div class="mock"></div><div class="mock"></div>';
     } );
 
-    test( 'Add classes to an HTML Element', () => {
+    test( 'Add 1 css class to an HTML Element', () => {
         let el = document.querySelector( '#mock' );
         const expectedResult = addClass( el, 'test-class' );
         expect( el.classList.contains( 'test-class' ) ).toBe( true );
+        expect( expectedResult ).toEqual( [el] );
+    } );
+
+    test( 'Add multiple css classes to an HTML Element', () => {
+        let el = document.querySelector( '#mock' );
+        const cssClasses = 'test-class hello world';
+        const expectedResult = addClass( el, cssClasses );
+        const checkResult = cssClasses.split(' ').reduce((result, cssClass) => {
+            if( !el.classList.contains(cssClass) ){
+                return false
+            }
+            return result
+        }, true)
+        expect( checkResult ).toBe( true );
         expect( expectedResult ).toEqual( [el] );
     } );
 

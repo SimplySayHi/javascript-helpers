@@ -7,6 +7,12 @@ describe( 'Get Elements', () => {
         document.body.innerHTML = '<div id="mock"></div><div class="mock"></div><div class="mock"></div><div class="mock"></div>';
     } );
 
+    test( 'Get Elements from document', () => {
+        let el = document;
+        const expectTest = getElements( el );
+        expect( expectTest ).toStrictEqual( [el] );
+    } );
+
     test( 'Get Elements from NodeList', () => {
         let el = document.querySelectorAll( '.mock' );
         const expectTest = getElements( el );

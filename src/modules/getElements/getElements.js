@@ -9,7 +9,7 @@ export default (elements = []) => {
 
         return Array.from( elements );
 
-    } else if( isDomNode(elements) ){
+    } else if( elements === document || isDomNode(elements) ){
 
         return [ elements ];
 

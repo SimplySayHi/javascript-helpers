@@ -2,7 +2,7 @@
 import delegateEvent from './delegateEvent';
 
 /*
-    ALL PARAMETERS ( EXCEPT data AND useCapture ) ARE MANDATORY.
+    ALL PARAMETERS ( EXCEPT data ) ARE MANDATORY.
     CASES OF MISSING PARAMETERS ARE NOT MANAGED EXCEPT FOR ancestor SINCE IT USES getElements
 */
 
@@ -34,6 +34,42 @@ describe( 'Delegate Event', () => {
         `;
     } );
 
+    test( 'Delegate Event: All set => ancestor as document', () => {
+        const ancestor = document;
+        const target = '[data-js-action="doSomething"]';
+        const data = { greeting: 'Hi' };
+        const callback = jest.fn();
+        
+        delegateEvent(
+            ancestor, 
+            'click',
+            target,
+            callback,
+            { data }
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('[data-num="2"]').click();
+        expect( callback ).toHaveBeenCalled();
+    } );
+
+    test( 'Delegate Event: All set => ancestor as document.body', () => {
+        const ancestor = document.body;
+        const target = '[data-js-action="doSomething"]';
+        const callback = jest.fn();
+        
+        delegateEvent(
+            ancestor, 
+            'click',
+            target,
+            callback
+        );
+
+        document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
+        document.querySelector('[data-num="2"]').click();
+        expect( callback ).toHaveBeenCalled();
+    } );
+
     test( 'Delegate Event: All set => ancestor as DOM node', () => {
         const ancestor = document.querySelector('header');
         const target = '[data-js-action="doSomething"]';
@@ -41,9 +77,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
@@ -58,9 +96,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
@@ -75,9 +115,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
@@ -92,9 +134,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
@@ -109,9 +153,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );
@@ -127,9 +173,11 @@ describe( 'Delegate Event', () => {
         const callback = jest.fn();
         
         delegateEvent(
-            { ancestor, target, data },
+            ancestor, 
             'click',
-            callback
+            target,
+            callback,
+            { data }
         );
 
         document.querySelector('ul').insertAdjacentHTML( 'beforeend', newHTML );

@@ -98,15 +98,15 @@
                     Firefox
                 </li>
                 <li>
-                    Internet Explorer 10+ / Edge <span class="text-yellow">*</span>
+                    Edge 18+
                 </li>
                 <li>
-                    Safari 9+
+                    Safari 10+
                 </li>
             </ul>
             <hr />
             <p>
-                <span class="text-yellow">*</span> for compatibility with IE 10/11 and old versions of Edge you have to load some JS polyfills - depending on the imported functions ( from <a href="https://polyfill.io" target="_blank">polyfill.io</a> or else ):<br />
+                For compatibility with old browsers you may need to load some JS polyfills - depending on the imported functions ( from <a href="https://polyfill.io" target="_blank">polyfill.io</a> or else ):<br />
                 <code>Array.from</code> <code>Element.prototype.closest</code> <code>Element.prototype.matches</code> <code>Promise</code> <code>Promise.prototype.finally</code> <code>AbortController</code> <code>fetch</code> <code>Event</code> <code>CustomEvent</code>
             </p>
             <pre>
@@ -127,7 +127,7 @@
                 For example:
             </p>
             <pre>
-<code class="language-js">import { ajaxCall, delegateEvent, runFunctionsSequence } from 'javascript-helpers';</code>
+<code class="language-js">import { ajaxCall, delegateEvent, getElements } from 'javascript-helpers';</code>
 </pre>
             <p>
                 Note: Remember to use tree-shaking techniques to avoid importing all modules from JavaScript Helpers.
@@ -177,7 +177,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
                                         </p>
                                     </li>
                                     <li>
@@ -381,14 +381,14 @@
                         <!-- delegateEvent -->
                         <section id="delegateEvent" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre data-fn-name class="text-green">delegateEvent( { ancestor, target[, data[, useCapture = false]] }, eventName, callback )</pre>
+                                <pre data-fn-name class="text-green">delegateEvent( ancestor, eventName, target, callback[, { data, options, useCapture = false } = {}] )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
                                     Attach a <code>callback</code> function to one event for all elements that match the <code>target</code>, now or in the future, based on <code>ancestor</code> root element(s).
                                     <br /><br />
-                                    All arguments are mandatory except for <code>data</code> and <code>useCapture</code>.
+                                    All arguments are mandatory except last one.
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -396,34 +396,17 @@
                                 <ul>
                                     <li>
                                         <p class="m-0">
-                                            <span class="text-green">[Object]</span>: ( Object ) An object with:
+                                            <span class="text-green">ancestor</span>: ( NodeList | HTML Element | Selector ) Container element to which the event will be attached ( MUST exist when calling <code>delegateEvent</code> ).
                                         </p>
-                                        <ul class="mb-3">
-                                            <li>
-                                                <p class="m-0">
-                                                    <span class="text-green">ancestor</span>: ( NodeList | HTML Element | Selector ) Container element to which the event will be attached ( MUST exist when calling <code>delegateEvent</code> ).
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p class="m-0">
-                                                    <span class="text-green">target</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p class="m-0">
-                                                    <span class="text-green">data</span>: ( Object - optional ) Object to be passed to the callback function.
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <p class="m-0">
-                                                    <span class="text-green">useCapture</span>: ( Boolean ) Whether to use capturing phase or not for the event listener.
-                                                </p>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li>
                                         <p>
                                             <span class="text-green">eventName</span>: ( String ) Event name on which the callback function will be triggered.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">target</span>: ( Selector ) CSS selector for the element(s) that will trigger the event ( these elements can exist or added in the future ).
                                         </p>
                                     </li>
                                     <li>
@@ -441,6 +424,28 @@
                                             <li>
                                                 <p class="m-0">
                                                     <span class="text-green">data</span>: ( Object ) data as passed to delegateEvent or undefined if not passed
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">[Object]</span>: ( Object - optional ) An object with:
+                                        </p>
+                                        <ul class="mb-3">
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">data</span>: ( Object - optional ) Object to be passed to the callback function.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">options</span>: ( Object - optional ) Object to be passed to the event listener as third argument. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#parameters" target="_blank">MDN doc</a>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p class="m-0">
+                                                    <span class="text-green">useCapture</span>: ( Boolean ) Whether to use capturing phase or not for the event listener.
                                                 </p>
                                             </li>
                                         </ul>
@@ -475,7 +480,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elem</span>: ( NodeList | HTML Element | Selector )
+                                            <span class="text-green">elem</span>: ( Document | NodeList | HTML Element | Selector | Array of HTML Elements )
                                         </p>
                                     </li>
                                     <li>
@@ -526,7 +531,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elem</span>: ( NodeList | HTML Element | Selector )
+                                            <span class="text-green">elem</span>: ( Document | NodeList | HTML Element | Selector | Array of HTML Elements )
                                         </p>
                                     </li>
                                     <li>
@@ -744,15 +749,15 @@
                             </div>
                         </section>
 
-                        <!-- getElements -->
-                        <section id="getElements" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                        <!-- getElementOffset -->
+                        <section id="getElementOffset" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
-                                <pre data-fn-name class="text-green">getElements( elements )</pre>
+                                <pre data-fn-name class="text-green">getElementOffset( element )</pre>
                             </div>
                             <div class="w-100 d-xl-none"></div>
                             <div class="col-lg-8 col-xl-5">
                                 <p>
-                                    Get an array of elements from the passed NodeList, HTML Element or String Selector.
+                                    Get element offset top and left. 
                                 </p>
                                 <p class="d-lg-none m-0">
                                     Parameters:
@@ -761,6 +766,50 @@
                                     <li>
                                         <p>
                                             <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Object
+                                </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- getElements -->
+                        <section id="getElements" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">getElements( elements[, parent] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Get an array of elements from the passed elements and, optionally, from a parent.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">parent</span>: ( Document | NodeList | HTML Element | Selector | Array of HTML Elements )
                                         </p>
                                     </li>
                                 </ul>
@@ -1303,7 +1352,7 @@
                                 <ul>
                                     <li>
                                         <p>
-                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector )
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
                                         </p>
                                     </li>
                                     <li>
@@ -1550,6 +1599,174 @@
                             </div>
                         </section>
 
+                        <!-- slideDown -->
+                        <section id="slideDown" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">slideDown( element[, options[, callback]] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Display the matched elements with a sliding motion.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">element</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">options</span>: ( Object )
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <span class="text-green">delay</span>: ( Number: <code>0</code> ) In milliseconds, determining how long to wait before the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">duration</span>: ( Number: <code>400</code> ) In milliseconds, determining how long the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">easing</span>: ( String: <code>'ease'</code> ) Easing function to use for the transition.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">displayValue</span>: ( String: <code>'block'</code> ) CSS display value to set after sliding motion.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">callback</span>: ( Function ) Executed once the animation is complete, called once per matched element.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- slideToggle -->
+                        <section id="slideToggle" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">slideToggle( element[, options[, callback]] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Display or hide the matched elements with a sliding motion.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">element</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">options</span>: ( Object )
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <span class="text-green">delay</span>: ( Number: <code>0</code> ) In milliseconds, determining how long to wait before the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">duration</span>: ( Number: <code>400</code> ) In milliseconds, determining how long the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">easing</span>: ( String: <code>'ease'</code> ) Easing function to use for the transition.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">displayValue</span>: ( String: <code>'block'</code> ) CSS display value to set after sliding motion.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">callback</span>: ( Function ) Executed once the animation is complete, called once per matched element.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- slideUp -->
+                        <section id="slideUp" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">slideUp( element[, options[, callback]] )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Hide the matched elements with a sliding motion.
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">element</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="m-0">
+                                            <span class="text-green">options</span>: ( Object )
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <span class="text-green">delay</span>: ( Number: <code>0</code> ) In milliseconds, determining how long to wait before the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">duration</span>: ( Number: <code>400</code> ) In milliseconds, determining how long the animation will run.
+                                            </li>
+                                            <li>
+                                                <span class="text-green">easing</span>: ( String: <code>'ease'</code> ) Easing function to use for the transition.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">callback</span>: ( Function ) Executed once the animation is complete, called once per matched element.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
                         <!-- setUrlHash -->
                         <section id="setUrlHash" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -1734,7 +1951,7 @@
                                 <p>
                                     This is useful to check if web storage is available in the browser ( local storage and session storage ) and to extend its functionalities.
                                     <br />
-                                    Call <code>webStorage.extend()</code> will add 2 new methods for web storage ( if web storage is available ):
+                                    Call <code>webStorage.extend()</code> will add these new methods for web storage ( if web storage is available ):
                                 </p>
                                 <ul>
                                     <li>
@@ -1760,7 +1977,22 @@
                                             </li>
                                             <li>
                                                 <p>
-                                                    <span class="text-green">object</span>: ( Object ) A JavaScript object to store in web storage as JSON string.
+                                                    <span class="text-green">object</span>: ( Object ) A JavaScript object to store in web storage.
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <pre class="text-green">Storage.prototype.mergeItem( name, object )</pre>
+                                        <ul>
+                                            <li>
+                                                <p>
+                                                    <span class="text-green">name</span>: ( String ) The name for the web storage to merge the object in.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    <span class="text-green">object</span>: ( Object ) A JavaScript object to store in web storage.
                                                 </p>
                                             </li>
                                         </ul>
@@ -1797,19 +2029,51 @@
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Add method "extend" to "webStorage" to let you call it manually
+                                Drop support for IE
                             </li>
                             <li>
-                                Removed "ajaxCallXhr"
+                                Added "getElementOffset"
                             </li>
                             <li>
-                                Removed "checkDirtyField"
+                                Added "slideDown"
                             </li>
                             <li>
-                                Removed "checkFormElement"
+                                Added "slideToggle"
                             </li>
                             <li>
-                                Minor internal improvements
+                                Added "slideUp"
+                            </li>
+                            <li>
+                                Added method "extend" to "webStorage" to let you call it manually and added "mergeItem" to methods added from "webStorage.extend()"
+                            </li>
+                            <li>
+                                Updated "getElements" to accept Array of HTML Elements as "elements" and added "parent" parameter
+                            </li>
+                            <li>
+                                Internal improvements
+                            </li>
+                            <li>
+                                <span class="text-red">BREAKING CHANGES</span>:
+                                <ul>
+                                    <li>
+                                        "delegateEvent": changed parameters order and type
+                                    </li>
+                                    <li>
+                                        "isValidEmail": changed value of optional parameter "checkRfc5322", now defaults to false
+                                    </li>
+                                    <li>
+                                        "webStorage": web storage new methods are not automatically added
+                                    </li>
+                                    <li>
+                                        Removed "ajaxCallXhr"
+                                    </li>
+                                    <li>
+                                        Removed "checkDirtyField"
+                                    </li>
+                                    <li>
+                                        Removed "checkFormElement"
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -1994,50 +2258,7 @@
     </div>
 
     <script type="module">
-        // import { ajaxCall, deepFreeze, emitEvent, emitCustomEvent } from './src/index.js';
-
-        // TEST BASIC AJAX CALL
-        /* ajaxCall({
-            method: 'GET',
-            url: './package.json'
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.log(error);
-        }) */
-
-        // USE OF OPTION timeout => WILL NOT RESPOND TO abort EVENT LISTENERS
-        /* let myCall1 = ajaxCall({
-            method: 'POST',
-            timeout: 1
-        });
-        myCall1
-        .then(data => { console.log('ajaxCall1 then:') })
-        .catch(error => { console.log('ajaxCall1 catch:') }); */
-
-        // USE OF 2ND ARGUMENT AS new AbortController() => IT'S POSSIBLE TO CALL myCall2.abort() AND controllerCall2.abort() THAT WILL TRIGGER EVENT abort ON THE ABORT CONTROLLER
-        /* const controllerCall2 = new AbortController();
-        let myCall2 = ajaxCall({
-            method: 'POST'
-        }, controllerCall2);
-        controllerCall2.signal.addEventListener('abort', event => {
-            console.log('abort event', event);
-        });
-        myCall2.abort();
-        myCall2.ready
-        .then(data => { console.log('ajaxCall2 then:') })
-        .catch(error => { console.log('ajaxCall2 catch:') }); */
-
-        // USE OF 2ND ARGUMENT AS true => CALL CAN BE MANUALLY ABORTED VIA myCall3.abort() BUT WILL NOT RESPOND TO abort EVENT LISTENERS
-        /* let myCall3 = ajaxCall({
-            method: 'POST'
-        }, true);
-        myCall3.abort();
-        myCall3.ready
-        .then(data => { console.log('ajaxCall3 then:') })
-        .catch(error => { console.log('ajaxCall3 catch:') }); */
+        // import { getElementOffset, slideDown, slideToggle, slideUp } from './src/index.js';
     </script>
 
 </body>

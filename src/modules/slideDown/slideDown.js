@@ -21,7 +21,7 @@ const slideDownAnimation = ($elem, {delay, duration, easing, displayValue}, call
         $elem.style.removeProperty('box-sizing');
         $elem.style.removeProperty('transition-duration');
         $elem.style.removeProperty('transition-property');
-        callback && callback($elem);
+        callback($elem);
     }, { once: true });
     
     $elem.style.overflow = 'hidden';
@@ -42,7 +42,7 @@ const slideDownAnimation = ($elem, {delay, duration, easing, displayValue}, call
     $elem.style.removeProperty('margin-bottom');
 }
 
-const slideDown = ( element, {delay = DELAY, duration = DURATION, easing = EASING, displayValue = DISPLAY_VALUE} = {}, callback ) => {
+const slideDown = ( element, {delay = DELAY, duration = DURATION, easing = EASING, displayValue = DISPLAY_VALUE} = {}, callback = ()=>{} ) => {
     const $elements = getElements(element);
     $elements.forEach($elem => slideDownAnimation($elem, {delay, duration, easing, displayValue}, callback));
 }

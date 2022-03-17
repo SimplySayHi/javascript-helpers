@@ -4,7 +4,7 @@ import getElements from '../getElements/getElements.js';
 import slideDown from '../slideDown/slideDown.js';
 import slideUp from '../slideUp/slideUp.js';
 
-const slideToggle = ( element, {delay = DELAY, duration = DURATION, easing = EASING, displayValue = DISPLAY_VALUE} = {}, callback ) => {
+const slideToggle = ( element, {delay = DELAY, duration = DURATION, easing = EASING, displayValue = DISPLAY_VALUE} = {}, callback = ()=>{} ) => {
     const $elements = getElements(element);
 
     $elements.forEach($elem => {

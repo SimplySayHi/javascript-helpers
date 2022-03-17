@@ -39,7 +39,7 @@ const slideUpAnimation = ($elem, {delay, duration, easing}, callback) => {
     $elem.style.marginBottom = 0;
 }
 
-const slideUp = ( element, {delay = DELAY, duration = DURATION, easing = EASING} = {}, callback ) => {
+const slideUp = ( element, {delay = DELAY, duration = DURATION, easing = EASING} = {}, callback = ()=>{} ) => {
     const $elements = getElements(element);
     $elements.forEach($elem => slideUpAnimation($elem, {delay, duration, easing}, callback));
 }

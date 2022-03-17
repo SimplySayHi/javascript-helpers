@@ -2,7 +2,7 @@ import getElements from "../getElements/getElements.js";
 
 const fieldsStringSelector = 'input:not([type="reset"]):not([type="submit"]):not([type="button"]):not([type="hidden"]), select, textarea';
 
-export default ( formEl = null ) => {
+export default formEl => {
 
     let lastFieldName = '';
     let lastFieldType = '';

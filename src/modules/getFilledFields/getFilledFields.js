@@ -2,7 +2,7 @@
 import getUniqueFields from '../getUniqueFields/getUniqueFields.js';
 import getElements from '../getElements/getElements.js';
 
-export default ( formEl = null ) => {
+export default formEl => {
 
     const $form = getElements(formEl)[0];
 

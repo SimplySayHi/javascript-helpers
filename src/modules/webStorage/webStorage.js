@@ -18,13 +18,12 @@ const extend = () => {
             return value && JSON.parse( value );
         }
 
-        // TO STORE A JS OBJECT INSIDE WEB STORAGE
+        // STORE A JS OBJECT INSIDE WEB STORAGE
         Storage.prototype.setObject = function( key, value ) {
             this.setItem( key, JSON.stringify(value) );
         }
 
-
-        // TO MERGE A JS OBJECT INSIDE WEB STORAGE
+        // MERGE A JS OBJECT INSIDE WEB STORAGE
         Storage.prototype.mergeItem = function( name, object ) {
             const objectClone = JSON.parse(JSON.stringify(object));
             const storageObj = this.getObject(name) || {};

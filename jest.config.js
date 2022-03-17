@@ -24,9 +24,14 @@ module.exports = {
   collectCoverageFrom: [
       "<rootDir>/src/modules/**/*.js",
       "!<rootDir>/src/modules/**/*.ignore-test.js",
+      "!<rootDir>/src/modules/**/utils/*.js",
       "!<rootDir>/src/modules/ajaxCall/**/*.js",
       "!<rootDir>/src/modules/emitEvent/**/*.js",
       "!<rootDir>/src/modules/emitCustomEvent/**/*.js",
+      "!<rootDir>/src/modules/getElementOffset/**/*.js",
+      "!<rootDir>/src/modules/slideDown/**/*.js",
+      "!<rootDir>/src/modules/slideToggle/slideToggle.js",
+      "!<rootDir>/src/modules/slideUp/**/*.js",
       "!<rootDir>/src/modules/webStorage/**/*.js"
   ],
 

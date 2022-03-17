@@ -4,7 +4,12 @@ import getElements from './getElements';
 describe( 'Get Elements', () => {
 
     beforeEach(() => {
-        document.body.innerHTML = '<div id="mock"></div><div class="mock"></div><div class="mock"></div><div class="mock"></div>';
+        document.body.innerHTML = `
+            <div id="mock"><div class="mock-123"></div></div>
+            <div class="mock"><div class="mock-123"></div></div>
+            <div class="mock"><div class="mock-123"></div></div>
+            <div class="mock"><div class="mock-123"></div></div>
+        `;
     } );
 
     test( 'Get Elements from document', () => {
@@ -15,6 +20,12 @@ describe( 'Get Elements', () => {
 
     test( 'Get Elements from NodeList', () => {
         let el = document.querySelectorAll( '.mock' );
+        const expectTest = getElements( el );
+        expect( expectTest ).toStrictEqual( Array.from(el) );
+    } );
+
+    test( 'Get Elements from Array of DOM nodes', () => {
+        let el = Array.from(document.querySelectorAll( '.mock' ));
         const expectTest = getElements( el );
         expect( expectTest ).toStrictEqual( Array.from(el) );
     } );
@@ -41,6 +52,41 @@ describe( 'Get Elements', () => {
         let el = '.mock';
         const expectTest = getElements( el );
         expect( expectTest ).toStrictEqual( Array.from(document.querySelectorAll('.mock')) );
+    } );
+
+    test( 'Get Elements from String Selector with parent as String Selector', () => {
+        let el = '.mock-123';
+        const parent = '.mock';
+        const expectTest = getElements( el, parent );
+        expect( expectTest ).toStrictEqual( Array.from(document.querySelectorAll('.mock .mock-123')) );
+    } );
+
+    test( 'Get Elements from String Selector with parent as Element', () => {
+        let el = '.mock-123';
+        const parent = document.querySelector('.mock');
+        const expectTest = getElements( el, parent );
+        expect( expectTest ).toStrictEqual( Array.from(document.querySelector('.mock').querySelectorAll('.mock-123')) );
+    } );
+
+    test( 'Get Elements from String Selector with parent as NodeList', () => {
+        let el = '.mock-123';
+        const parent = document.querySelectorAll('.mock');
+        const expectTest = getElements( el, parent );
+        expect( expectTest ).toStrictEqual( Array.from(document.querySelectorAll('.mock .mock-123')) );
+    } );
+
+    test( 'Get Elements from String Selector with parent as Array of DOM nodes', () => {
+        let el = '.mock-123';
+        const parent = Array.from(document.querySelectorAll('.mock'));
+        const expectTest = getElements( el, parent );
+        expect( expectTest ).toStrictEqual( Array.from(document.querySelectorAll('.mock .mock-123')) );
+    } );
+
+    test( 'Get Elements from String Selector with parent as document', () => {
+        let el = '.mock-123';
+        const parent = document;
+        const expectTest = getElements( el, parent );
+        expect( expectTest ).toStrictEqual( Array.from(document.querySelectorAll('.mock-123')) );
     } );
 
     test( 'No arguments passed', () => {

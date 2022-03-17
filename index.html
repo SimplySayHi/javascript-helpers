@@ -396,7 +396,7 @@
                                 <ul>
                                     <li>
                                         <p class="m-0">
-                                            <span class="text-green">ancestor</span>: ( NodeList | HTML Element | Selector ) Container element to which the event will be attached ( MUST exist when calling <code>delegateEvent</code> ).
+                                            <span class="text-green">ancestor</span>: ( Document, NodeList | HTML Element | Selector | Array of HTML Elements ) Container element to which the event will be attached ( MUST exist when calling <code>delegateEvent</code> ).
                                         </p>
                                     </li>
                                     <li>
@@ -2258,7 +2258,18 @@
     </div>
 
     <script type="module">
-        // import { getElementOffset, slideDown, slideToggle, slideUp } from './src/index.js';
+        /* import { getElementOffset, slideDown, slideToggle, slideUp, webStorage } from './src/index.js';
+
+        webStorage.extend()
+
+        localStorage.setObject('hello', {a:1, b:2})
+
+        console.log( localStorage.getObject('hello') )
+
+        setTimeout(() => {
+            localStorage.mergeItem('hello', {b:0, c:3})
+            console.log( localStorage.getObject('hello') )
+        }, 3000) */
     </script>
 
 </body>

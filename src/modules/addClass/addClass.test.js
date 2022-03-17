@@ -61,8 +61,16 @@ describe( 'Add Class', () => {
         expect( expectedResult ).toEqual( [] );
     } );
 
-    test( 'Add classes to many HTML Elements', () => {
+    test( 'Add classes to many HTML Elements ( NodeList )', () => {
         let el = document.querySelectorAll( '.mock' );
+        const expectedResult = addClass( el, 'test-class' );
+        const expectTest = Array.from(el).filter(el => el.classList.contains( 'test-class' )).length === el.length;
+        expect( expectTest ).toBe( true );
+        expect( expectedResult ).toEqual( Array.from(el) );
+    } );
+
+    test( 'Add classes to many HTML Elements ( Array of HTML Elements )', () => {
+        let el = Array.from(document.querySelectorAll( '.mock' ));
         const expectedResult = addClass( el, 'test-class' );
         const expectTest = Array.from(el).filter(el => el.classList.contains( 'test-class' )).length === el.length;
         expect( expectTest ).toBe( true );

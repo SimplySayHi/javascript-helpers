@@ -64,6 +64,14 @@ describe( 'Remove Class', () => {
         expect( expectedResult ).toEqual( Array.from(el) );
     } );
 
+    test( 'Remove classes form many HTML Elements ( Array of HTML Elements )', () => {
+        let el = Array.from(document.querySelectorAll( '.mock' ));
+        const expectedResult = removeClass( el, 'mock-class-1' );
+        const expectTest = Array.from(el).filter(el => el.classList.contains( 'mock-class-1' )).length === el.length;
+        expect( expectTest ).toBe( true );
+        expect( expectedResult ).toEqual( Array.from(el) );
+    } );
+
     test( 'Many HTML Elements but no classes', () => {
         let el = document.querySelectorAll( '.mock' );
         const expectedResult = removeClass( el );

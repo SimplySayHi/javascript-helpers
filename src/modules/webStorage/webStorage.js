@@ -12,15 +12,23 @@ const isAvailable = (() => {
 
 const extend = () => {
     if( isAvailable ){
-        // TO STORE A JS OBJECT ( AS JSON STRING ) INSIDE WEB STORAGE
+        // RETURN THE STORED DATA AS JS OBJECT
+        Storage.prototype.getObject = function( key ) {
+            const value = this.getItem( key );
+            return value && JSON.parse( value );
+        }
+
+        // TO STORE A JS OBJECT INSIDE WEB STORAGE
         Storage.prototype.setObject = function( key, value ) {
             this.setItem( key, JSON.stringify(value) );
         }
 
-        // RETURN THE DATA ( STORED AS JSON STRING ) AS JS OBJECT
-        Storage.prototype.getObject = function( key ) {
-            const value = this.getItem( key );
-            return value && JSON.parse( value );
+
+        // TO MERGE A JS OBJECT INSIDE WEB STORAGE
+        Storage.prototype.mergeItem = function( name, object ) {
+            const objectClone = JSON.parse(JSON.stringify(object));
+            const storageObj = this.getObject(name) || {};
+            this.setItem( name, JSON.stringify({...storageObj, ...objectClone}) );
         }
     }
 }

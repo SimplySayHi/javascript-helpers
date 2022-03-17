@@ -10,6 +10,7 @@ export { default as fillForm }                  from './modules/fillForm/fillFor
 export { default as getAge }                    from './modules/getAge/getAge.js'
 export { default as getAgeBetween }             from './modules/getAgeBetween/getAgeBetween.js'
 export { default as getDateSeparator }          from './modules/getDateSeparator/getDateSeparator.js';
+export { default as getElementOffset }          from './modules/getElementOffset/getElementOffset.js';
 export { default as getElements }               from './modules/getElements/getElements.js';
 export { default as getFilledFields }           from './modules/getFilledFields/getFilledFields.js';
 export { default as getUniqueFields }           from './modules/getUniqueFields/getUniqueFields.js';
@@ -33,6 +34,9 @@ export { default as runCallback }               from './modules/runCallback/runC
 export { default as runFunctionsSequence }      from './modules/runFunctionsSequence/runFunctionsSequence.js';
 export { default as serializeObject }           from './modules/serializeObject/serializeObject.js';
 export { default as setUrlHash }                from './modules/setUrlHash/setUrlHash.js';
+export { default as slideDown }                 from './modules/slideDown/slideDown.js';
+export { default as slideToggle }               from './modules/slideToggle/slideToggle.js';
+export { default as slideUp }                   from './modules/slideUp/slideUp.js';
 export { default as toCamelCase }               from './modules/toCamelCase/toCamelCase.js';
 export { default as toKebabCase }               from './modules/toKebabCase/toKebabCase.js';
 export { default as toPascalCase }              from './modules/toPascalCase/toPascalCase.js';

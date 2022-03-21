@@ -30,7 +30,7 @@ const slideUpAnimation = ($elem, {delay, duration, easing}, callback) => {
     $elem.style.transitionTimingFunction = easing;
     $elem.style.transitionDelay = `${delay}ms`;
     $elem.style.boxSizing = 'border-box';
-    $elem.style.height = $elem.offsetHeight + 'px';
+    $elem.style.height = `${$elem.offsetHeight}px`;
     $elem.style.overflow = 'hidden';
     $elem.style.height = 0;
     $elem.style.paddingTop = 0;

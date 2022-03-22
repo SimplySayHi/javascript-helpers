@@ -38,6 +38,7 @@ export { default as slideDown }                 from './modules/slideDown/slideD
 export { default as slideToggle }               from './modules/slideToggle/slideToggle.js';
 export { default as slideUp }                   from './modules/slideUp/slideUp.js';
 export { default as toCamelCase }               from './modules/toCamelCase/toCamelCase.js';
+export { default as toggleClass }               from './modules/toggleClass/toggleClass.js';
 export { default as toKebabCase }               from './modules/toKebabCase/toKebabCase.js';
 export { default as toPascalCase }              from './modules/toPascalCase/toPascalCase.js';
 export { default as toSnakeCase }               from './modules/toSnakeCase/toSnakeCase.js';

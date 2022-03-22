@@ -1829,6 +1829,55 @@
                             </div>
                         </section>
 
+                        <!-- toggleClass -->
+                        <section id="toggleClass" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
+                            <div class="col-lg-auto col-xl-4">
+                                <pre data-fn-name class="text-green">toggleClass( elements, cssClasses, force )</pre>
+                            </div>
+                            <div class="w-100 d-xl-none"></div>
+                            <div class="col-lg-8 col-xl-5">
+                                <p>
+                                    Toggle the specified css class(es) to the specified HTML element(s).
+                                </p>
+                                <p class="d-lg-none m-0">
+                                    Parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">elements</span>: ( NodeList | HTML Element | Selector | Array of HTML Elements )
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">cssClasses</span>: ( String ) One or more space-separated css classes to be toggled.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <span class="text-green">force</span>: ( Boolean ) If included, turns the toggle into a one way-only operation. If set to <code>false</code>, then css class(es) will only be removed, but not added. If set to <code>true</code>, then css class(es) will only be added, but not removed. 
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-xl-3">
+                                <p class="d-lg-none m-0">
+                                    Return value:
+                                </p>
+                                <p>
+                                    Array of elements as returned by getElements from the passed <code>elements</code>.
+                                </p>
+                                <p class="m-0">
+                                    Polyfills you may need:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>Array.from</code>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
                         <!-- toKebabCase -->
                         <section id="toKebabCase" class="clearfix padding-tb-md row-list-separator d-flex flex-wrap">
                             <div class="col-lg-auto col-xl-4">
@@ -2042,6 +2091,9 @@
                             </li>
                             <li>
                                 Added "slideUp"
+                            </li>
+                            <li>
+                                Added "toggleClass"
                             </li>
                             <li>
                                 Added method "extend" to "webStorage" to let you call it manually and added "mergeItem" to methods added from "webStorage.extend()"

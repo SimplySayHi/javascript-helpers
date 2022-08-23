@@ -30,6 +30,7 @@ const slideDownAnimation = ($elem, {delay, duration, easing, displayValue}, call
     $elem.style.paddingBottom = 0;
     $elem.style.marginTop = 0;
     $elem.style.marginBottom = 0;
+    $elem.offsetHeight;
     $elem.style.boxSizing = 'border-box';
     $elem.style.transitionProperty = 'height, margin, padding';
     $elem.style.transitionDuration = `${duration}ms`;

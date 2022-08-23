@@ -1972,54 +1972,7 @@
                     <div class="media-body pl-2">
                         <ul>
                             <li>
-                                Drop support for IE
-                            </li>
-                            <li>
-                                Added "getElementOffset"
-                            </li>
-                            <li>
-                                Added "slideDown"
-                            </li>
-                            <li>
-                                Added "slideToggle"
-                            </li>
-                            <li>
-                                Added "slideUp"
-                            </li>
-                            <li>
-                                Added "toggleClass"
-                            </li>
-                            <li>
-                                Added method "extend" to "webStorage" to let you call it manually and added "mergeItem" to methods added from "webStorage.extend()"
-                            </li>
-                            <li>
-                                Updated "getElements" to accept Array of HTML Elements as "elements" and added "parent" parameter
-                            </li>
-                            <li>
-                                Internal improvements
-                            </li>
-                            <li>
-                                <span class="text-red">BREAKING CHANGES</span>:
-                                <ul>
-                                    <li>
-                                        "delegateEvent": changed parameters order and type
-                                    </li>
-                                    <li>
-                                        "isValidEmail": changed value of optional parameter "checkRfc5322", now defaults to false
-                                    </li>
-                                    <li>
-                                        "webStorage": web storage new methods are not automatically added
-                                    </li>
-                                    <li>
-                                        Removed "ajaxCallXhr"
-                                    </li>
-                                    <li>
-                                        Removed "checkDirtyField"
-                                    </li>
-                                    <li>
-                                        Removed "checkFormElement"
-                                    </li>
-                                </ul>
+                                Fix bug in "slideDown" and "slideUp" that was causing slide animations to not work properly
                             </li>
                         </ul>
                     </div>
@@ -2034,6 +1987,63 @@
                 <div class="toggable-content">
                     <ul class="p-0">
 
+                        <li class="media my-3">
+                            <div class="version-num text-red">2.0.0</div>
+                            <div class="media-body pl-2">
+                                <ul>
+                                    <li>
+                                        Drop support for IE
+                                    </li>
+                                    <li>
+                                        Added "getElementOffset"
+                                    </li>
+                                    <li>
+                                        Added "slideDown"
+                                    </li>
+                                    <li>
+                                        Added "slideToggle"
+                                    </li>
+                                    <li>
+                                        Added "slideUp"
+                                    </li>
+                                    <li>
+                                        Added "toggleClass"
+                                    </li>
+                                    <li>
+                                        Added method "extend" to "webStorage" to let you call it manually and added "mergeItem" to methods added from "webStorage.extend()"
+                                    </li>
+                                    <li>
+                                        Updated "getElements" to accept Array of HTML Elements as "elements" and added "parent" parameter
+                                    </li>
+                                    <li>
+                                        Internal improvements
+                                    </li>
+                                    <li>
+                                        <span class="text-red">BREAKING CHANGES</span>:
+                                        <ul>
+                                            <li>
+                                                "delegateEvent": changed parameters order and type
+                                            </li>
+                                            <li>
+                                                "isValidEmail": changed value of optional parameter "checkRfc5322", now defaults to false
+                                            </li>
+                                            <li>
+                                                "webStorage": web storage new methods are not automatically added
+                                            </li>
+                                            <li>
+                                                Removed "ajaxCallXhr"
+                                            </li>
+                                            <li>
+                                                Removed "checkDirtyField"
+                                            </li>
+                                            <li>
+                                                Removed "checkFormElement"
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="media my-3">
                             <div class="version-num text-red">1.4.2</div>
                             <div class="media-body pl-2">
